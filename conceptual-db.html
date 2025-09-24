@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harapan - Personal Blog</title> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .disclaimer{
+            text-shadow: #fdd835;
+            color: red;
+        }
+        :root {
+            --bg-color: #676777;
+            --card-color: #2a2a36;
+            --sidebar-color: #252530;
+            --text-color: #e0e0e0;
+            --highlight-color: #fdd835;
+            --secondary-text: #a0a0a0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            position: relative; font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color); color: var(--text-color);
+            padding-top: 80px;
+        }
+        .footer {
+            width: 100%;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            background-color: rgba(37, 37, 48, 0.7);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--secondary-text);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-about {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .footer-about strong {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .footer-links {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-links nav a {
+            color: var(--secondary-text);
+            text-decoration: none;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+        .footer-links nav a:hover {
+            color: var(--highlight-color);
+        }
+
+
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--card-color);
+            border-radius: 50%;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--highlight-color);
+            color: #1e1e28;
+            transform: translateY(-3px);
+        }
+
+        /* --- Responsif untuk Footer --- */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column; /* Susun vertikal di layar kecil */
+                text-align: center;
+            }
+        }
+        body::before {
+            content: ''; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url('asset/bg.jpg');
+            background-size: cover; background-position: center;
+            filter: blur(5px); opacity: 0.3; z-index: -1;
+        }
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            background-color: #333; padding: 0 2rem; height: 60px;
+            color: white; position: fixed; top: 0; left: 0;
+            width: 100%; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .nav-branding { font-size: 1.5rem; font-weight: bold; color: white; text-decoration: none; }
+        .nav-menu { display: flex; list-style: none; gap: 2rem; }
+        .nav-link { color: white; text-decoration: none; transition: color 0.3s ease; }
+        .nav-link:hover { color: #00bfff; }
+        .main-layout {
+            display: grid; grid-template-columns: 320px 1fr;
+            gap: 2rem; padding: 2rem; max-width: 1400px; margin: auto;
+        }
+        .profile-card {
+            background-color: var(--sidebar-color);
+            border-radius: 15px; padding: 2rem; text-align: center;
+            height: fit-content; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .profile-pic { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid var(--highlight-color); margin-bottom: 1rem; }
+        .profile-card h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+        .profile-card .title { background-color: var(--card-color); color: var(--highlight-color); display: inline-block; padding: 0.25rem 0.75rem; border-radius: 5px; font-size: 0.8rem; font-weight: 500; margin-bottom: 2rem; }
+        .contact-info { list-style: none; text-align: left; font-size: 0.9rem; }
+        .contact-info li { padding: 0.85rem 0; border-top: 1px solid var(--card-color); }
+        .contact-info li:first-child { border-top: none; }
+        .contact-info li strong { color: var(--text-color); display: block; margin-bottom: 0.25rem; }
+        
+        /* STYLE KONTEN ARTIKEL */
+        .content-container {
+            background-color: var(--sidebar-color);
+            padding: 2rem 3rem;
+            border-radius: 15px;
+        }
+        .content-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--highlight-color);
+        }
+        .content-container p, .content-container h3 {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        .content-container h3 {
+            color: var(--text-color);
+            border-left: 3px solid var(--highlight-color);
+            padding-left: 1rem;
+            margin-top: 2rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--highlight-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .post-date {
+            display: block;
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--secondary-text);
+        }
+        @media (max-width: 992px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/index" class="nav-branding">Personal Blog</a>
+            <ul class="nav-menu">
+                <li><a href="/index" class="nav-link">Profile</a></li>
+                <li><a href="mailto:noriyamashin@gmail.com" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-layout">
+        <aside class="profile-card">
+            <img src="asset/profile.jpg" alt="Foto Profil" class="profile-pic">
+            <h1>Bagas Nurdiansyah</h1>
+            <p class="title">Web Developer</p>
+            <ul class="contact-info">
+                <li><strong>NIM</strong><span>24416255201023</span></li>
+                <li><strong>Email</strong><span>noriyamashin@gmail.com</span></li>
+                <li><strong>Phone</strong><span>+62 6669996669</span></li>
+                <li><strong>Location</strong><span>Nara, Japan</span></li>
+                <li><strong>Status</strong><span>Active</span></li>
+            </ul>
+        </aside>
+
+        <div class="content-container">
+            <h1>Conceptual DB</h1>
+            <p>
+                Apa itu Conceptual DB? Yuk kita bedah lagi bersama sama di blog yang saya buat ini. <b class="disclaimer">Disclaimer! : Informasi yang saya sampaikan merupakan sebuah lanjutan dari materi yang saya peroleh dari perkuliahan dan hasil search melalui internet maka dari itu jika ada kesamaan atau kemiripan kata mohon contact admin</b>. 
+            </p>
+            <h3>Analogi</h3>
+            <img src="asset/canvas.png" width="200px" height="200px" alt="canvas">
+            <a href="https://pin.it/1ANSoVj2c"><p style="color: #a0a0a0;"> source : pinterest</p></a>
+            <p>
+                Bayangkan kita ingin membuat sebuah lukisan yang indah dan bermakna. Sebelum kita mulai menggoreskan kuas di kanvas, kita tidak langsung membeli semua jenis cat dan kuas yang ada. Kita akan mulai dengan mengidentifikasi dan menganalisis terlebih dahulu: apa saja objek yang akan kita gambar, warna apa yang kita perlukan, dan bagaimana objek-objek tersebut saling berinteraksi. Inilah langkah awal yang sama pentingnya dengan Conceptual DB. Proses identifikasi dan analisis ini dilakukan agar kita tahu persis apa yang dibutuhkan. Sebab itu, kita tidak akan membuang-buang bahan (memori dan sumber daya) yang tidak relevan. Setiap cat dan kuas yang kita siapkan memiliki relasi satu sama lain untuk menciptakan komposisi yang harmonis Jadi, Conceptual DB adalah langkah awal yang krusial dalam perancangan basis data. Ini adalah tahapan "persiapan" yang memastikan setiap elemen data (bahan lukisan) memiliki fungsi dan keterkaitan yang jelas, sehingga produk akhirnya (database) menjadi efisien, relevan, dan mudah diolah untuk menghasilkan informasi yang Anda butuhkan.
+            </p>
+            <h3>Penjelasan</h3>
+            <p>
+                Bayangkan proses membuat lukisan tadi. Setelah kita menyiapkan cat dan kuas yang sesuai, kita tidak langsung asal gores di kanvas. Biasanya kita akan membuat sketsa dasar terlebih dahulu, berupa garis-garis tipis yang menentukan posisi setiap objek. Sketsa ini bisa kita samakan dengan Conceptual DB, yaitu gambaran besar yang masih sederhana tetapi sangat penting untuk menentukan arah karya yang akan kita hasilkan. Kalau sketsanya salah misalnya menaruh matahari di bawah laut atau pohon yang lebih kecil dari bunga maka hasil akhirnya akan terlihat janggal. Sama halnya dengan database, kesalahan pada tahap konseptual akan membuat sistem yang dibangun menjadi tidak konsisten, sulit dipakai, bahkan bisa kehilangan makna. Setiap warna yang kita pilih dalam lukisan juga memiliki perannya masing-masing. Merah mungkin untuk bunga, biru untuk langit, hijau untuk dedaunan. Kita tidak bisa asal memakai semua warna tanpa tujuan, karena lukisan akan terlihat berantakan. Demikian pula dalam Conceptual DB, setiap elemen data harus jelas kenapa ia dipakai, atribut apa yang penting, serta bagaimana hubungannya dengan elemen lain.
+            </p>
+            <p>
+                Hubungan antar data bisa diibaratkan seperti komposisi warna dan bentuk dalam sebuah lukisan. Bunga merah di tengah hamparan hijau tidak berdiri sendiri; keduanya saling melengkapi untuk menciptakan harmoni. Begitu juga dengan database, entitas seperti Mahasiswa dan Mata Kuliah baru menjadi bermakna ketika hubungan di antara keduanya ditetapkan dengan jelas.
+
+Ketika semua cat, kuas, dan sketsa sudah tersusun dengan baik, hasil akhirnya adalah sebuah lukisan yang bukan hanya indah tetapi juga memiliki makna mendalam. Inilah esensi dari Conceptual DB: sebuah fondasi yang memastikan database nantinya efisien, relevan, dan benar-benar mendukung tujuan sistem yang dibangun.
+            </p>
+            <span class="post-date">24 September 2025</span>
+            <a href="/index" class="back-link">&larr; Kembali ke Halaman Utama</a>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <img src="asset/profile.jpg" alt="Foto Profil" class="footer-photo">
+                <div>
+                    <strong>Bagas Nurdiansyah</strong>
+                    <p>Personal Blog</p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <p>&copy; 2025 Bagas Nurdiansyah. All Rights Reserved.</p>
+                <nav>
+                    <a href="/index">Home</a> | 
+                    <a href="/profile">Profile</a>
+                </nav>
+            </div>
+
+            <div class="footer-social">
+                <a href="https://github.com/Noriishere" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="www.linkedin.com/in/bagas-nurdiansyah-026016289" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="www.instagram.com/bagasnrdiansy" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://open.spotify.com/playlist/31ujp5M6nYnL1Jbt9GukAn?si=ouXvk3CpQ-OoI3wI8Z5sdg" class="social-icon" title="Spotify"><i class="fab fa-spotify"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

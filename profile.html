@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Bagas Nurdiansyah</title> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- STYLE DASAR & LATAR BELAKANG --- */
+        :root {
+            --bg-color: #676777;
+            --card-color: #2a2a36;
+            --sidebar-color: #252530;
+            --text-color: #e0e0e0;
+            --highlight-color: #fdd835;
+            --secondary-text: #a0a0a0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            position: relative; font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color); color: var(--text-color);
+            padding-top: 80px;
+        }
+        .footer {
+            width: 100%;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            background-color: rgba(37, 37, 48, 0.7);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--secondary-text);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-about {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-photo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .footer-about strong {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .footer-links {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-links nav a {
+            color: var(--secondary-text);
+            text-decoration: none;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+        .footer-links nav a:hover {
+            color: var(--highlight-color);
+        }
+
+
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--card-color);
+            border-radius: 50%;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--highlight-color);
+            color: #1e1e28;
+            transform: translateY(-3px);
+        }
+
+        /* --- Responsif untuk Footer --- */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column; /* Susun vertikal di layar kecil */
+                text-align: center;
+            }
+        }
+        body::before {
+            content: ''; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url('asset/bg.jpg');
+            background-size: cover; background-position: center;
+            filter: blur(5px); opacity: 0.3; z-index: -1;
+        }
+        
+        /* --- NAVBAR --- */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            background-color: #333; padding: 0 2rem; height: 60px;
+            color: white; position: fixed; top: 0; left: 0;
+            width: 100%; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .nav-branding { font-size: 1.5rem; font-weight: bold; color: white; text-decoration: none; }
+        .nav-menu { display: flex; list-style: none; gap: 2rem; }
+        .nav-link { color: white; text-decoration: none; transition: color 0.3s ease; }
+        .nav-link:hover { color: #00bfff; }
+
+        /* --- STYLE KHUSUS HALAMAN PROFIL --- */
+        .profile-page-container {
+            background-color: var(--sidebar-color);
+            padding: 2rem 3rem;
+            max-width: 900px;
+            margin: 2rem auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .profile-header {
+            text-align: center;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #444;
+        }
+        .profile-header .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--highlight-color);
+            margin-bottom: 1rem;
+        }
+        .profile-header h1 {
+            font-size: 2.5rem;
+        }
+        .profile-header .title {
+            font-size: 1.1rem;
+            color: var(--highlight-color);
+            margin-top: 0.5rem;
+        }
+
+        .profile-section {
+            margin-bottom: 2.5rem;
+        }
+        .profile-section h2 {
+            font-size: 1.8rem;
+            color: var(--highlight-color);
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--highlight-color);
+            padding-left: 1rem;
+        }
+        .profile-section p {
+            line-height: 1.7;
+            text-align: justify;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            list-style: none;
+        }
+        .skill-item {
+            background-color: var(--card-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--highlight-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/index" class="nav-branding">Personal Blog</a>
+            <ul class="nav-menu">
+                <li><a href="/profile" class="nav-link">Profile</a></li>
+                <li><a href="mailto:noriyamashin@gmail.com" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="profile-page-container">
+        <section class="profile-header">
+            <img src="asset/profile.jpg" alt="Foto Profil" class="profile-pic">
+            <h1>Bagas Nurdiansyah</h1>
+            <p class="title">Web Developer & Music Enthusiast</p>
+        </section>
+
+        <section class="profile-section">
+            <h2>Tentang Saya</h2>
+            <p>
+                Saya adalah seorang yang gemar mencoba hal baru, dalam pembuatan web saya memiliki antusias di bagian backend. Selain membuat website saya juga mampu mengoperasikan aplikasi netbin atau menggunakan bahasa java yang dimana saya memegang basic utama atau fundamental skill Java. Memiliki minat di bidang musik saya mampu membuat background music untuk sebuah game.
+            </p>
+            <p>
+                Saat ini, saya sedang fokus mendalami ilmu Basis Data untuk memperkuat fondasi teknis saya, dengan tujuan akhir dapat merancang sistem yang skalabel, aman, dan berperforma tinggi.
+            </p>
+        </section>
+
+        <section class="profile-section">
+            <h2>Keahlian</h2>
+            <ul class="skills-list">
+                <li class="skill-item">HTML</li>
+                <li class="skill-item">Java</li>
+                <li class="skill-item">Coach MLBB</li>
+                <li class="skill-item">Python</li>
+                <li class="skill-item">JavaScript</li>
+                <li class="skill-item">SQL Basics</li>
+                <li class="skill-item">Database Design</li>
+                <li class="skill-item">Roblox Map Design</li>
+            </ul>
+        </section>
+        
+        <a href="/index" class="back-link">&larr; Kembali ke Halaman Utama</a>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <img src="asset/profile.jpg" alt="Foto Profil" class="footer-photo">
+                <div>
+                    <strong>Bagas Nurdiansyah</strong>
+                    <p>Personal Blog</p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <p>&copy; 2025 Bagas Nurdiansyah. All Rights Reserved.</p>
+                <nav>
+                    <a href="/index">Home</a> | 
+                    <a href="/profile">Profile</a>
+                </nav>
+            </div>
+
+            <div class="footer-social">
+                <a href="https://github.com/Noriishere" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="www.linkedin.com/in/bagas-nurdiansyah-026016289" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="www.instagram.com/bagasnrdiansy" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://open.spotify.com/playlist/31ujp5M6nYnL1Jbt9GukAn?si=ouXvk3CpQ-OoI3wI8Z5sdg" class="social-icon" title="Spotify"><i class="fab fa-spotify"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
