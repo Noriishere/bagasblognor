@@ -81,7 +81,7 @@ body::before {
 /* --- LAYOUT UTAMA --- */
 .main-layout {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 380px 1fr;
     gap: 2rem;
     padding: 2rem;
     max-width: 1400px;
