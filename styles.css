@@ -499,3 +499,22 @@ a.full-page-link:hover {
         height: 250px;
     }
 }
+/* --- STYLE UNTUK TOMBOL LINK --- */
+.btn-link {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1.5rem;
+    background-color: var(--highlight-color);
+    color: var(--card-color);
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-link:hover {
+    background-color: #ffe052; /* Warna highlight yang sedikit lebih terang */
+    transform: translateY(-2px);
+}
