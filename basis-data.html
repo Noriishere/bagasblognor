@@ -40,32 +40,57 @@
         </aside>
 
         <div class="content-container">
-            <h1>Basis Data</h1>
-            <p>
-                Apa itu Basis data? Mari kita bedah bersama sama di blog yang saya buat ini. <b class="disclaimer">Disclaimer! : Informasi yang saya sampaikan merupakan sebuah lanjutan dari materi yang saya peroleh dari perkuliahan dan hasil search melalui internet maka dari itu jika ada kesamaan atau kemiripan kata mohon contact admin</b>. 
-            </p>
-            <h3>Analogi</h3>
-            <img src="asset/library.png" width="200px" height="200px" alt="perpus">
-            <a href="https://pin.it/7t1Ql5MWm"><p style="color: #a0a0a0;"> source : pinterest</p></a>
-            <p>
-                Bayangkan basis data seperti sebuah perpustakaan yang sangat rapi dan terorganisir. Setiap buku di sana memiliki data yang berbeda: judul, genre, penulis, hingga tahun terbit. Dari informasi dasar ini, kita bisa mendapatkan lebih banyak wawasan. Sebagai contoh, kita bisa mengelompokkan buku sesuai genrenya atau mengurutkannya berdasarkan tahun terbit. Proses ini penting agar kita bisa menemukan informasi lebih dalam, misalnya buku apa yang sedang populer atau bagaimana tren buku berubah dari tahun ke tahun.
-            </p>
-            <h3>Penjelasan</h3>
-            <p>
-                Sekarang bayangkan jika perpustakaan itu tidak teratur. Buku-buku ditumpuk begitu saja, tidak ada rak berdasarkan genre, tidak ada katalog penulis, bahkan judulnya sulit dicari. Tentu saja kita akan kesulitan menemukan buku yang dibutuhkan, apalagi menganalisis informasi lebih lanjut. Nah, di sinilah basis data berperan: ia adalah sistem yang memastikan semua informasi disusun dengan logika tertentu, sehingga pencarian menjadi cepat, rapi, dan akurat. Rak buku dalam perpustakaan bisa kita ibaratkan sebagai tabel dalam basis data. Setiap rak berisi sekumpulan buku dengan kategori yang sama, mirip seperti tabel yang menyimpan data dengan struktur tertentu. Buku itu sendiri adalah record atau baris data, sedangkan detail seperti judul, penulis, dan tahun terbit merupakan atribut atau kolom. Dengan struktur ini, setiap informasi punya tempatnya masing-masing. Lebih menarik lagi, kita bisa melihat hubungan antar rak. Misalnya, rak novel fantasi mungkin punya kaitan dengan rak buku mitologi karena ada penulis yang menulis di kedua genre.
-            </p>
-            <p>
-                Hubungan inilah yang dalam basis data disebut sebagai relasi. Relasi membuat data tidak berdiri sendiri, melainkan saling terhubung sehingga kita bisa mendapatkan gambaran yang lebih luas.
+    <h1>Apa Itu Basis Data?</h1>
+    <p>
+        <b class="disclaimer">Disclaimer! :</b> Informasi yang saya sampaikan merupakan pemahaman pribadi yang didukung materi kuliah dan sumber online. Jika ada kesamaan, mohon hubungi admin.
+    </p>
 
-Akhirnya, dari perpustakaan yang teratur ini, kita tidak hanya bisa membaca buku satu per satu, tapi juga melakukan analisis lebih besar: tren penulisan dari tahun ke tahun, genre yang paling banyak diminati, hingga penulis yang karyanya paling sering dipinjam. Inilah kekuatan basis data, yaitu mengubah kumpulan informasi yang rapi menjadi sumber pengetahuan yang bernilai.
-            </p>
-            <h3>Kesimpulan</h3>
-            <p>
-                Dengan kata lain, basis data adalah tempat di mana data disimpan dengan cara yang tidak hanya bisa diakses, tetapi juga diolah untuk mengungkap wawasan tersembunyi yang bisa membantu kita dalam membuat keputusan.
-            </p>
-            <span class="post-date">24 September 2025</span>
-            <a href="/index" class="back-link">&larr; Kembali ke Halaman Utama</a>
-        </div>
+    <h3>Analogi: Perpustakaan Modern 🏛️</h3>
+    <img src="asset/library.png" alt="Analogi Perpustakaan" class="post-image" style="height: 250px; object-fit: cover;">
+    <p>
+        Bayangkan basis data seperti sebuah perpustakaan yang sangat rapi. Setiap buku adalah **data**. Rak buku tempat menyimpan buku sejenis adalah **tabel**. Detail pada setiap buku seperti judul, penulis, dan tahun terbit adalah **kolom** atau **atribut**. Dengan sistem ini, kita tidak hanya mudah menemukan satu buku, tetapi juga bisa mendapatkan wawasan, seperti "Siapa penulis paling produktif di tahun 2024?"
+    </p>
+
+    <h3>Contoh Teknis: Tabel Mahasiswa</h3>
+    <p>
+        Dalam dunia nyata, analogi "rak buku" itu diwujudkan dalam bentuk tabel. Misalkan kita ingin menyimpan data mahasiswa, tabelnya akan terlihat seperti ini:
+    </p>
+    <div style="overflow-x:auto;">
+        <table style="width:100%; text-align: left; border-collapse: collapse;">
+            <tr style="background-color: var(--card-color);">
+                <th style="padding: 8px; border: 1px solid #444;">NIM</th>
+                <th style="padding: 8px; border: 1px solid #444;">Nama_Lengkap</th>
+                <th style="padding: 8px; border: 1px solid #444;">Jurusan</th>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #444;">24416255201023</td>
+                <td style="padding: 8px; border: 1px solid #444;">Bagas Nurdiansyah</td>
+                <td style="padding: 8px; border: 1px solid #444;">Teknik Informatika</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #444;">24416255201024</td>
+                <td style="padding: 8px; border: 1px solid #444;">Siti Aminah</td>
+                <td style="padding: 8px; border: 1px solid #444;">Sistem Informasi</td>
+            </tr>
+        </table>
+    </div>
+
+    <h3>Contoh Kode: Membuat Tabel dengan SQL</h3>
+    <p>
+        Untuk membuat tabel di atas, kita menggunakan bahasa perintah yang disebut SQL. Kodenya seperti ini:
+    </p>
+    <pre style="background-color: var(--card-color); padding: 1rem; border-radius: 5px; font-family: monospace; overflow-x: auto;"><code style="color: #e0e0e0;">CREATE TABLE Mahasiswa (
+    NIM VARCHAR(15) PRIMARY KEY,
+    Nama_Lengkap VARCHAR(100),
+    Jurusan VARCHAR(50)
+);</code></pre>
+    <p>
+        Dengan basis data, informasi yang tadinya acak menjadi terstruktur, mudah dikelola, dan kaya akan wawasan.
+    </p>
+    
+    <span class="post-date">28 September 2025</span>
+    <a href="index.html" class="back-link">← Kembali ke Halaman Utama</a>
+</div>
     </main>
     <footer class="footer">
         <div class="footer-container">
@@ -96,6 +121,7 @@ Akhirnya, dari perpustakaan yang teratur ini, kita tidak hanya bisa membaca buku
 </body>
 
 </html>
+
 
 
 
