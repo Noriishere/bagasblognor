@@ -131,6 +131,7 @@ body::before {
 .contact-info li {
     padding: 0.85rem 0;
     border-top: 1px solid var(--card-color);
+    word-break: break-all;
 }
 
 .contact-info li:first-child {
