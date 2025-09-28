@@ -5,186 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Blog - Bagas Nurdiansyah</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #676777;
-            --card-color: #2a2a36;
-            --sidebar-color: #252530;
-            --text-color: #e0e0e0;
-            --highlight-color: #fdd835;
-            --secondary-text: #a0a0a0;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-        .footer {
-            width: 100%;
-            padding: 2rem 0;
-            margin-top: 3rem;
-            background-color: rgba(37, 37, 48, 0.7);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--secondary-text);
-        }
-
-        .footer-container {
-            max-width: 1400px;
-            margin: auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
-
-        .footer-about {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .footer-photo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .footer-about strong {
-            color: var(--text-color);
-            font-weight: 500;
-        }
-
-        .footer-links {
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        .footer-links nav a {
-            color: var(--secondary-text);
-            text-decoration: none;
-            margin: 0 0.5rem;
-            transition: color 0.3s;
-        }
-        .footer-links nav a:hover {
-            color: var(--highlight-color);
-        }
-
-
-        .footer-social {
-            display: flex;
-            gap: 0.75rem;
-        }
-
-        .social-icon {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--card-color);
-            border-radius: 50%;
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .social-icon:hover {
-            background-color: var(--highlight-color);
-            color: #1e1e28;
-            transform: translateY(-3px);
-        }
-
-        /* --- Responsif untuk Footer --- */
-        @media (max-width: 768px) {
-            .footer-container {
-                flex-direction: column; /* Susun vertikal di layar kecil */
-                text-align: center;
-            }
-        }
-        body {
-            position: relative;
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            padding-top: 80px;
-        }
-        body::before {
-            content: ''; position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image: url('asset/bg.jpg');
-            background-size: cover; background-position: center;
-            filter: blur(5px); opacity: 0.3; z-index: -1;
-        }
-        .navbar {
-            display: flex; justify-content: space-between; align-items: center;
-            background-color: #333; padding: 0 2rem; height: 60px;
-            color: white; position: fixed; top: 0; left: 0;
-            width: 100%; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .nav-branding { font-size: 1rem; font-weight: bold; color: white; text-decoration: none; }
-        .nav-menu { display: flex; list-style: none; gap: 2rem; }
-        .nav-link { color: white; text-decoration: none; transition: color 0.3s ease; }
-        .nav-link:hover { color: #00bfff; }
-        .main-layout {
-            display: grid; grid-template-columns: 320px 1fr;
-            gap: 2rem; padding: 2rem; max-width: 1400px; margin: auto;
-        }
-        .profile-card {
-            background-color: var(--sidebar-color);
-            border-radius: 15px; padding: 2rem; text-align: center;
-            height: fit-content; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        .profile-pic { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid var(--highlight-color); margin-bottom: 1rem; }
-        .profile-card h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
-        .profile-card .title { background-color: var(--card-color); color: var(--highlight-color); display: inline-block; padding: 0.25rem 0.75rem; border-radius: 5px; font-size: 0.8rem; font-weight: 500; margin-bottom: 2rem; }
-        .contact-info { list-style: none; text-align: left; font-size: 0.9rem; }
-        .contact-info li { padding: 0.85rem 0; border-top: 1px solid var(--card-color); }
-        .contact-info li:first-child { border-top: none; }
-        .contact-info li strong { color: var(--text-color); display: block; margin-bottom: 0.25rem; }
-        .content-container h2 { font-size: 2rem; margin-bottom: 1.5rem; }
-        .post-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-        .post-card { background-color: var(--card-color); border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.3s ease; cursor: pointer; }
-        .post-card:hover { transform: translateY(-5px); }
-        .post-card img { width: 100%; height: 180px; object-fit: cover; }
-        .post-info { padding: 1rem; }
-        .post-info h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
-        .post-info p { font-size: 0.9rem; color: var(--secondary-text); }
-
-        /* --- MODAL & LINK --- */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; }
-        .modal-overlay.show { opacity: 1; visibility: visible; }
-        .modal-konten {
-            background: white; color: #333; padding: 30px; border-radius: 8px;
-            width: 90%; max-width: 500px; text-align: left; position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transform: translateY(50px); opacity: 0;
-            transition: transform 0.4s ease, opacity 0.4s ease;
-            max-height: 85vh; overflow-y: auto;
-            display: flex; flex-direction: column;
-        }
-        .modal-konten h1 { text-align: center; margin-bottom: 1rem; }
-        .modal-konten p { text-align: justify; line-height: 1.6; }
-        .modal-overlay.show .modal-konten { transform: translateY(0); opacity: 1; }
-        .close-button { position: absolute; top: 10px; right: 15px; font-size: 24px; font-weight: bold; cursor: pointer; color: #aaa; }
-        .close-button:hover { color: #333; }
-        .full-page-link { display: inline-block; margin-top: 1.5rem; padding: 0.5rem 1rem; background-color: var(--highlight-color); color: #1e1e28; text-decoration: none; border-radius: 5px; font-weight: 600; transition: transform 0.3s; }
-        .full-page-link:hover { transform: scale(1.05); }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 992px) { .main-layout { grid-template-columns: 1fr; } }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav class="navbar">
-            <a href="/index" class="nav-branding">Personal Blog</a>
+            <a href="index.html" class="nav-branding">Personal Blog</a>
             <ul class="nav-menu">
-                <li><a href="/profile" class="nav-link">Profile</a></li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="profile.html" class="nav-link">Profile</a></li>
                 <li><a href="mailto:noriyamashin@gmail.com?subject=Pesan%20dari%20Website" class="nav-link">Contact</a></li>
             </ul>
         </nav>
@@ -209,23 +41,36 @@
             <div class="post-grid">
                 <div class="post-card">
                     <img src="asset/1.jpg" alt="Post 1">
-                    <div class="post-info"><h3>Harapan</h3><p>Harapan saya terhadap mata kuliah Basis Data.</p></div>
+                    <div class="post-info">
+                        <h3>Harapan</h3>
+                        <p>Harapan saya terhadap mata kuliah Basis Data.</p>
+                    </div>
                 </div>
                 <div class="post-card">
                     <img src="asset/2.jpg" alt="Post 2">
-                    <div class="post-info"><h3>Basis Data</h3><p>Apa itu Basis Data?</p></div>
+                    <div class="post-info">
+                        <h3>Basis Data</h3>
+                        <p>Apa itu Basis Data?</p>
+                    </div>
                 </div>
                 <div class="post-card">
                     <img src="asset/3.jpg" alt="Post 3">
-                    <div class="post-info"><h3>Conceptual DB</h3><p>Apa itu Conceptual DB?</p></div>
+                    <div class="post-info">
+                        <h3>Conceptual DB</h3>
+                        <p>Apa itu Conceptual DB?</p>
+                    </div>
                 </div>
                 <div class="post-card">
                     <img src="asset/4.jpg" alt="Post 4">
-                    <div class="post-info"><h3>Physical Model</h3><p>Apa itu Physical model?</p></div>
+                    <div class="post-info">
+                        <h3>Physical Model</h3>
+                        <p>Apa itu Physical model?</p>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-about">
@@ -239,8 +84,8 @@
             <div class="footer-links">
                 <p>&copy; 2025 Bagas Nurdiansyah. All Rights Reserved.</p>
                 <nav>
-                    <a href="/index">Home</a> | 
-                    <a href="/profile">Profile</a>
+                    <a href="index.html">Home</a> | 
+                    <a href="profile.html">Profile</a>
                 </nav>
             </div>
 
@@ -252,77 +97,7 @@
             </div>
         </div>
     </footer>
-    <script>
-        const triggerElements = document.querySelectorAll('.post-card');
-        triggerElements.forEach(card => {
-            card.addEventListener('click', () => {
-                buatDanTampilkanModal(card);
-            });
-        });
 
-        function buatDanTampilkanModal(clickedCard) {
-            let postTitle = clickedCard.querySelector('h3').textContent;
-            const convertTitle = postTitle.trim().toLowerCase();
-            
-            const modalOverlay = document.createElement('div');
-            modalOverlay.className = 'modal-overlay';
-            const modalKonten = document.createElement('div');
-            modalKonten.className = 'modal-konten';
-            const tombolTutup = document.createElement('span');
-            tombolTutup.className = 'close-button';
-            tombolTutup.innerHTML = '&times;';
-            const judulModal = document.createElement('h1');
-            judulModal.textContent = `${postTitle}`;
-            const blogContent = document.createElement('div');
-
-            let pageUrl = '';
-            let blogHTML = '';
-
-            if (convertTitle === "harapan") {
-                pageUrl = 'harapan.html';
-                blogHTML = `<p>Harapan saya terhadap mata kuliah Basis Data adalah untuk memahami konsep fundamental dan prinsip desain database yang efisien...</p>`;
-            } else if (convertTitle === "basis data") {
-                pageUrl = 'basis-data.html';
-                blogHTML = `<p>Apa itu Basis data? Mari kita bedah. Bayangkan basis data seperti sebuah perpustakaan yang sangat rapi dan terorganisir...</p>`;
-            } else if (convertTitle === "conceptual db"){
-                pageUrl = 'conceptual-db.html';
-                blogHTML = `<p>Apa itu Conceptual DB? Yuk kita bedah lagi. Bayangkan kita ingin membuat sebuah lukisan yang indah dan bermakna...</p>`;
-            } else if (convertTitle === "physical model"){
-                pageUrl = 'physical-model.html';
-                blogHTML = `<p>Apa itu Physical Model? Menurut penalaran saya, Physical Model adalah tahapan di mana kita menentukan setiap detail teknis dari basis data...</p>`;
-            } else {
-                blogHTML = `<p>Konten pratinjau tidak tersedia.</p>`;
-            }
-
-            blogContent.innerHTML = blogHTML + `<a href="${pageUrl}" class="full-page-link">Baca Selengkapnya &rarr;</a>`;
-
-            modalKonten.appendChild(tombolTutup);
-            modalKonten.appendChild(judulModal);
-            modalKonten.appendChild(blogContent);
-            modalOverlay.appendChild(modalKonten);
-            document.body.appendChild(modalOverlay);
-
-            setTimeout(() => { modalOverlay.classList.add('show'); }, 10);
-
-            function tutupModal() {
-                modalOverlay.classList.remove('show');
-                setTimeout(() => {
-                    if (document.body.contains(modalOverlay)) {
-                        document.body.removeChild(modalOverlay);
-                    }
-                }, 400);
-            }
-
-            tombolTutup.addEventListener('click', tutupModal);
-            modalOverlay.addEventListener('click', (event) => {
-                if (event.target === modalOverlay) {
-                    tutupModal();
-                }
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
-
-
