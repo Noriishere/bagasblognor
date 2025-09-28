@@ -40,27 +40,35 @@
         </aside>
 
         <div class="content-container">
-            <h1>Conceptual DB</h1>
+            <h1>Apa Itu Conceptual Model?</h1>
             <p>
-                Apa itu Conceptual DB? Yuk kita bedah lagi bersama sama di blog yang saya buat ini. <b class="disclaimer">Disclaimer! : Informasi yang saya sampaikan merupakan sebuah lanjutan dari materi yang saya peroleh dari perkuliahan dan hasil search melalui internet maka dari itu jika ada kesamaan atau kemiripan kata mohon contact admin</b>. 
+                <b class="disclaimer">Disclaimer! :</b> Informasi yang saya sampaikan merupakan pemahaman pribadi yang didukung materi kuliah dan sumber online. Jika ada kesamaan, mohon hubungi admin.
             </p>
-            <h3>Analogi</h3>
-            <img src="asset/canvas.png" width="200px" height="200px" alt="canvas">
-            <a href="https://pin.it/1ANSoVj2c"><p style="color: #a0a0a0;"> source : pinterest</p></a>
+        
+            <h3>Analogi: Sketsa Seorang Pelukis 🎨</h3>
+            <img src="asset/canvas.png" alt="Analogi Sketsa Lukisan" class="post-image" style="height: 250px; object-fit: cover;">
             <p>
-                Bayangkan kita ingin membuat sebuah lukisan yang indah dan bermakna. Sebelum kita mulai menggoreskan kuas di kanvas, kita tidak langsung membeli semua jenis cat dan kuas yang ada. Kita akan mulai dengan mengidentifikasi dan menganalisis terlebih dahulu: apa saja objek yang akan kita gambar, warna apa yang kita perlukan, dan bagaimana objek-objek tersebut saling berinteraksi. Inilah langkah awal yang sama pentingnya dengan Conceptual DB. Proses identifikasi dan analisis ini dilakukan agar kita tahu persis apa yang dibutuhkan. Sebab itu, kita tidak akan membuang-buang bahan (memori dan sumber daya) yang tidak relevan. Setiap cat dan kuas yang kita siapkan memiliki relasi satu sama lain untuk menciptakan komposisi yang harmonis Jadi, Conceptual DB adalah langkah awal yang krusial dalam perancangan basis data. Ini adalah tahapan "persiapan" yang memastikan setiap elemen data (bahan lukisan) memiliki fungsi dan keterkaitan yang jelas, sehingga produk akhirnya (database) menjadi efisien, relevan, dan mudah diolah untuk menghasilkan informasi yang Anda butuhkan.
-            </p>
-            <h3>Penjelasan</h3>
-            <p>
-                Bayangkan proses membuat lukisan tadi. Setelah kita menyiapkan cat dan kuas yang sesuai, kita tidak langsung asal gores di kanvas. Biasanya kita akan membuat sketsa dasar terlebih dahulu, berupa garis-garis tipis yang menentukan posisi setiap objek. Sketsa ini bisa kita samakan dengan Conceptual DB, yaitu gambaran besar yang masih sederhana tetapi sangat penting untuk menentukan arah karya yang akan kita hasilkan. Kalau sketsanya salah misalnya menaruh matahari di bawah laut atau pohon yang lebih kecil dari bunga maka hasil akhirnya akan terlihat janggal. Sama halnya dengan database, kesalahan pada tahap konseptual akan membuat sistem yang dibangun menjadi tidak konsisten, sulit dipakai, bahkan bisa kehilangan makna. Setiap warna yang kita pilih dalam lukisan juga memiliki perannya masing-masing. Merah mungkin untuk bunga, biru untuk langit, hijau untuk dedaunan. Kita tidak bisa asal memakai semua warna tanpa tujuan, karena lukisan akan terlihat berantakan. Demikian pula dalam Conceptual DB, setiap elemen data harus jelas kenapa ia dipakai, atribut apa yang penting, serta bagaimana hubungannya dengan elemen lain.
+                Bayangkan Anda seorang pelukis. Sebelum melukis di kanvas, Anda membuat sketsa kasar di kertas. Sketsa ini menentukan objek utama apa saja yang akan ada (misalnya: gunung, sawah, petani) dan bagaimana hubungan antar objek tersebut (petani berada di sawah, di depan gunung). Anda tidak memikirkan detail seperti "merek cat apa yang dipakai" atau "ukuran kuas nomor berapa".
             </p>
             <p>
-                Hubungan antar data bisa diibaratkan seperti komposisi warna dan bentuk dalam sebuah lukisan. Bunga merah di tengah hamparan hijau tidak berdiri sendiri; keduanya saling melengkapi untuk menciptakan harmoni. Begitu juga dengan database, entitas seperti Mahasiswa dan Mata Kuliah baru menjadi bermakna ketika hubungan di antara keduanya ditetapkan dengan jelas.
-
-Ketika semua cat, kuas, dan sketsa sudah tersusun dengan baik, hasil akhirnya adalah sebuah lukisan yang bukan hanya indah tetapi juga memiliki makna mendalam. Inilah esensi dari Conceptual DB: sebuah fondasi yang memastikan database nantinya efisien, relevan, dan benar-benar mendukung tujuan sistem yang dibangun.
+                **Conceptual Model** adalah "sketsa" dalam dunia basis data. Ini adalah tahap paling awal di mana kita menentukan **data apa saja** yang penting (entitas) dan **bagaimana data itu saling berhubungan** (relasi).
             </p>
-            <span class="post-date">24 September 2025</span>
-            <a href="/index" class="back-link">&larr; Kembali ke Halaman Utama</a>
+            
+            <h3>Contoh Teknis: Diagram ERD</h3>
+            <p>
+                Sketsa dalam basis data biasanya digambar dalam bentuk **ERD (Entity-Relationship Diagram)**. Jika kita ingin membuat sistem akademik, sketsanya akan mengidentifikasi dua entitas utama: **Mahasiswa** dan **Mata Kuliah**. Hubungan di antara keduanya adalah **"Mengambil"**.
+            </p>
+            <p>
+                Diagramnya secara sederhana akan menunjukkan [Kotak: Mahasiswa] terhubung dengan [Kotak: Mata Kuliah] melalui sebuah [Diamond: Mengambil]. Dari diagram ini, kita bisa membaca: "Satu Mahasiswa bisa Mengambil banyak Mata Kuliah, dan satu Mata Kuliah bisa Diambil oleh banyak Mahasiswa".
+            </p>
+        
+            <h3>Fokus Utama Conceptual Model</h3>
+            <p>
+                Pada tahap ini, kita tidak peduli dengan detail teknis seperti tipe data atau nama tabel. Fokus kita murni pada kebutuhan bisnis: informasi apa yang perlu kita simpan dan bagaimana mereka saling terkait. Sebuah sketsa yang baik akan menghasilkan database yang kokoh.
+            </p>
+        
+            <span class="post-date">28 September 2025</span>
+            <a href="index.html" class="back-link">← Kembali ke Halaman Utama</a>
         </div>
     </main>
     <footer class="footer">
