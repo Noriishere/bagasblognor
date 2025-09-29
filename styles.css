@@ -1,172 +1,75 @@
-/* Fix untuk Overflow Content dan Footer - Tambahkan di CSS Anda */
+/* URGENT FIX - Tambahkan di bagian paling atas CSS atau buat file terpisah */
 
-/* --- FIX OVERFLOW ISSUES --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Reset navbar yang rusak */
+.nav-menu {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-html, body {
-    overflow-x: hidden; /* Cegah horizontal scroll */
-    width: 100%;
+.nav-menu li {
+    list-style: none !important;
+    display: inline-block !important;
+    margin: 0 !important;
 }
 
-body {
-    min-height: 100vh; /* Minimal tinggi viewport */
-    display: flex;
-    flex-direction: column;
+.nav-menu li:before {
+    content: none !important;
 }
 
-/* Fix untuk main content agar tidak overflow */
-.main-layout {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    flex: 1; /* Ambil sisa ruang */
+/* Pastikan navbar styling tetap bekerja */
+.navbar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background-color: #333 !important;
+    padding: 0 2rem !important;
+    height: 60px !important;
+    color: white !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 100 !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
 }
 
-/* Fix untuk content container */
-.content-container {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto; /* Allow horizontal scroll untuk table/code jika perlu */
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+.nav-branding {
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    color: white !important;
+    text-decoration: none !important;
 }
 
-/* Fix untuk table yang bisa overflow */
-.content-container table {
-    width: 100%;
-    max-width: 100%;
-    table-layout: fixed; /* Force table tidak melebihi container */
+.nav-menu {
+    display: flex !important;
+    list-style: none !important;
+    gap: 2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-.content-container td, .content-container th {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+.nav-link {
+    color: white !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
 }
 
-/* Fix untuk code block yang bisa overflow */
-.content-container pre {
-    max-width: 100%;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+.nav-link:hover {
+    color: #00bfff !important;
 }
 
-.content-container code {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-/* Fix untuk images */
-.content-container img, .post-image {
-    max-width: 100%;
-    height: auto;
-}
-
-/* --- FIX FOOTER POSITIONING --- */
-.footer {
-    margin-top: auto; /* Push footer ke bottom */
-    width: 100%;
-    flex-shrink: 0; /* Jangan shrink footer */
-}
-
-/* --- MOBILE SPECIFIC FIXES --- */
+/* Fix untuk mobile navbar */
 @media (max-width: 768px) {
-    /* Cegah overflow di mobile */
-    .main-layout {
-        padding: 1rem 0.5rem; /* Kurangi padding samping */
-        width: 100%;
-        max-width: 100vw;
-    }
-    
-    .content-container {
-        padding: 1.5rem 1rem;
-        margin: 0;
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    .profile-card {
-        padding: 1.5rem 1rem;
-        margin: 0 0 1rem 0;
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    /* Fix untuk navbar overflow */
     .navbar {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 1rem;
+        padding: 0 1rem !important;
     }
     
     .nav-menu {
-        flex-wrap: wrap;
+        gap: 1rem !important;
     }
     
-    /* Fix untuk table di mobile */
-    .content-container div[style*="overflow-x:auto"] {
-        margin: 1rem -1rem; /* Extend ke edge container */
-        padding: 0 1rem;
+    .nav-branding {
+        font-size: 0.9rem !important;
     }
-    
-    /* Fix untuk pre/code di mobile */
-    .content-container pre {
-        margin: 1rem -1rem;
-        padding: 1rem;
-        border-radius: 0;
-    }
-    
-    /* Fix untuk footer di mobile */
-    .footer-container {
-        padding: 0 1rem;
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    .footer-about {
-        width: 100%;
-    }
-    
-    .footer-social {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-/* --- EXTRA SAFETY MEASURES --- */
-/* Pastikan semua child elements tidak overflow */
-.main-layout * {
-    max-width: 100%;
-}
-
-/* Fix untuk long words/URLs */
-.content-container p, .content-container li {
-    word-break: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-}
-
-/* Fix untuk contact info yang mungkin panjang */
-.contact-info li {
-    word-break: break-all;
-    overflow-wrap: break-word;
-}
-
-/* Ensure footer always at bottom */
-html {
-    height: 100%;
-}
-
-body {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-main, .main-layout {
-    flex: 1;
 }
