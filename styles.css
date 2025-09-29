@@ -518,3 +518,8 @@ a.full-page-link:hover {
     background-color: #ffe052; /* Warna highlight yang sedikit lebih terang */
     transform: translateY(-2px);
 }
+
+.main-layout.post-page {
+    display: block; /* Mengubah layout dari grid menjadi block biasa */
+    max-width: 900px; /* Batasi lebar maksimal agar tulisan nyaman dibaca */
+}
