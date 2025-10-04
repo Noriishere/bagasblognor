@@ -26,6 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
             pageUrl: 'videotutorial.html',
             content: `<p>Mari kita cba instalasi Aplikasi DBMS Salah satunya laragon.</p>
                       <p>Tutorial singkat menginstal Laragon.</p>`
+        },
+        "mengenal komponen erd: entitas, atribut, dan relasi": {
+            pageUrl: 'erd.html',
+            content: `<p>Artikel ini membahas tiga komponen fundamental dalam sebuah ERD (Entity-Relationship Diagram) yang menjadi dasar perancangan database.</p>
+                      <p>Pelajari apa itu Entitas (objek), Atribut (deskripsi), dan Relasi (penghubung) dengan analogi sederhana untuk memahami bagaimana sebuah database distrukturkan.</p>`
         }
     };
 
