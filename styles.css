@@ -519,7 +519,6 @@ a.full-page-link:hover {
     transform: translateY(-2px);
 }
 
-/* --- KONTEN VIDEO YOUTUBE --- */
 .video-container {
     position: relative;
     overflow: hidden;
@@ -527,7 +526,6 @@ a.full-page-link:hover {
     padding-top: 56.25%; /* Aspect Ratio 16:9 */
     margin: 2rem 0;
     border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
 .video-container iframe {
@@ -538,7 +536,6 @@ a.full-page-link:hover {
     height: 100%;
     border: 0;
 }
-
 .main-layout.post-page {
     display: block; /* Mengubah layout dari grid menjadi block biasa */
     max-width: 900px; /* Batasi lebar maksimal agar tulisan nyaman dibaca */
