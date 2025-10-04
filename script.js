@@ -21,6 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
             pageUrl: 'physical-model.html',
             content: `<p>Apa itu Physical Model? Menurut penalaran saya, Physical Model adalah tahapan di mana kita menentukan setiap detail teknis dari basis data. Jika Conceptual Model adalah "sketsa" dan Logical Model adalah "blueprint", maka Physical Model adalah "rencana pembangunan" yang sangat detail.</p>
                       <p>Pada tahap ini, kita menentukan struktur penyimpanan data yang sebenarnya, termasuk tipe data yang tepat, indeks, partisi, dan optimasi performa lainnya.</p>`
+        },
+        "tutorial install dbms": {
+            pageUrl: 'videotutorial.html',
+            content: `<p>Mari kita cba instalasi Aplikasi DBMS Salah satunya laragon.</p>
+                      <p>Tutorial singkat menginstal Laragon.</p>`
         }
     };
 
