@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         "tutorial install dbms": {
             pageUrl: 'videotutorial.html',
-            content: `<p>Mari kita cba instalasi Aplikasi DBMS Salah satunya laragon.</p>
+            content: `<p>Mari kita coba instalasi Aplikasi DBMS Salah satunya laragon.</p>
                       <p>Tutorial singkat menginstal Laragon.</p>`
         },
         "mengenal komponen erd: entitas, atribut, dan relasi": {
