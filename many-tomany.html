@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apa itu Relasi Database & Masalah Many-to-Many</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/asset/styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <a href="/index" class="nav-branding">Personal Blog</a>
+        <ul class="nav-menu">
+          <li><a href="/index" class="nav-link">Profile</a></li>
+          <li>
+            <a href="mailto:noriyamashin@gmail.com" class="nav-link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-layout">
+      <aside class="profile-card">
+        <img src="asset/profile.jpg" alt="Foto Profil" class="profile-pic" />
+        <h1>Bagas Nurdiansyah</h1>
+        <p class="title">Web Developer</p>
+        <ul class="contact-info">
+          <li><strong>NIM</strong><span>24416255201023</span></li>
+          <li>
+            <strong>Email</strong
+            ><span>if24.bagasnurdiansyah@mhs.ubpkarawang.ac.id</span>
+          </li>
+          <li><strong>Phone</strong><span>+62 89686027339</span></li>
+          <li><strong>Location</strong><span>Karawang</span></li>
+          <li><strong>Status</strong><span>Active</span></li>
+        </ul>
+        <a href="https://ubpkarawang.ac.id/" target="_blank" class="btn-link">
+          Website UBP Karawang
+        </a>
+      </aside>
+
+      <div class="content-container">
+        <h1>
+          Apa Itu Relasi dalam Database dan Mengapa Relasi Many-to-Many Perlu
+          Dihindari?
+        </h1>
+        <p>
+          <b class="disclaimer">Disclaimer! :</b> Informasi yang saya sampaikan
+          merupakan pemahaman pribadi yang didukung materi kuliah dan sumber
+          online. Jika ada kesamaan, mohon hubungi admin.
+        </p>
+
+        <h3 style="font-size: 2rem; background-color: rgb(69, 71, 71)">
+          Mengenal Konsep Relasi dalam Database
+        </h3>
+        <p>
+          Dalam dunia database, <b>relasi</b> adalah hubungan logis yang terjadi
+          antara dua tabel atau lebih. Bayangkan Anda memiliki data yang
+          tersebar di beberapa tabel terpisah, misalnya tabel
+          <b>Mahasiswa</b> dan tabel <b>Jurusan</b>. Relasi memungkinkan kita
+          untuk menghubungkan seorang mahasiswa dengan jurusan yang diambilnya.
+        </p>
+        <p>
+          Hubungan ini dibangun menggunakan <b>Primary Key</b> dan
+          <b>Foreign Key</b>. Dengan adanya relasi, kita bisa memastikan data
+          tetap konsisten, terorganisir, dan mudah untuk dikelola. Tanpa relasi,
+          database hanyalah kumpulan tabel yang tidak saling mengenal.
+        </p>
+
+        <h3>Jenis-Jenis Kardinalitas Relasi</h3>
+        <p>
+          Kardinalitas mendefinisikan bagaimana baris data dalam satu tabel
+          dapat terhubung dengan baris data di tabel lain. Ada tiga jenis utama:
+        </p>
+        <div class="key-takeaways" style="margin-left: 30px">
+          <ul>
+            <li>
+              <b>One-to-One (1:1):</b> Satu baris di Tabel A hanya bisa
+              berhubungan dengan satu baris di Tabel B. Contohnya, satu Warga
+              Negara hanya bisa memiliki satu Nomor Induk Kependudukan (NIK).
+            </li>
+            <li>
+              <b>One-to-Many (1:N):</b> Satu baris di Tabel A bisa berhubungan
+              dengan banyak baris di Tabel B, tapi tidak sebaliknya. Contohnya,
+              satu Dosen bisa mengajar banyak Mata Kuliah.
+            </li>
+            <li>
+              <b>Many-to-Many (M:N):</b> Banyak baris di Tabel A bisa
+              berhubungan dengan banyak baris di Tabel B, dan sebaliknya.
+              Contohnya, banyak Mahasiswa bisa mengambil banyak Mata Kuliah.
+            </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <h3 style="font-size: 2rem; background-color: rgb(69, 71, 71)">
+          Mengapa Relasi Many-to-Many Tidak Layak Digunakan?
+        </h3>
+        <p>
+          Meskipun relasi <i>many-to-many</i> (M:N) sering ditemukan dalam
+          konsep dunia nyata, mengimplementasikannya secara langsung dalam
+          desain database fisik sangat tidak disarankan. Relasi M:N dianggap
+          tidak layak karena menimbulkan beberapa masalah serius.
+        </p>
+
+        <h3>Masalah Utama pada Relasi Many-to-Many</h3>
+        <div class="key-takeaways" style="margin-left: 30px">
+          <ul>
+            <li>
+              <b>Kompleksitas Implementasi:</b> Sistem database relasional
+              (seperti MySQL, PostgreSQL) tidak dapat secara langsung membuat
+              hubungan M:N. Memaksakannya akan membuat struktur database menjadi
+              rumit dan sulit dikelola.
+            </li>
+            <li>
+              <b>Redundansi dan Ambiguitas Data:</b> Sulit untuk menyimpan
+              informasi spesifik tentang hubungan tersebut. Misalnya, di mana
+              kita akan menyimpan nilai seorang mahasiswa untuk mata kuliah
+              tertentu? Jika dimasukkan di tabel mahasiswa atau mata kuliah,
+              akan terjadi pengulangan data yang tidak efisien.
+            </li>
+            <li>
+              <b>Kesulitan Kueri dan Kinerja Buruk:</b> Mengambil data dari
+              hubungan M:N yang dipaksakan akan memerlukan kueri yang sangat
+              kompleks dan lambat, terutama jika jumlah datanya besar. Ini dapat
+              menurunkan performa sistem secara keseluruhan.
+            </li>
+            <li>
+              <b>Anomali Data:</b> Proses menambah, mengubah, atau menghapus
+              data menjadi sangat rumit dan rawan kesalahan. Misalnya, jika satu
+              mahasiswa berhenti mengambil satu mata kuliah, bagaimana cara
+              menghapus hubungan itu tanpa menghapus data mahasiswa atau mata
+              kuliah itu sendiri?
+            </li>
+          </ul>
+        </div>
+
+        <h3>Contoh Kasus: Tabel Mahasiswa dan Mata Kuliah</h3>
+        <p>
+          Bayangkan kita punya dua tabel ini yang ingin kita hubungkan secara
+          <i>many-to-many</i>.
+        </p>
+        <div style="overflow-x: auto; margin-bottom: 15px">
+          <b>Tabel Mahasiswa</b>
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444"><u>NIM</u></th>
+              <th style="padding: 8px; border: 1px solid #444">Nama_Lengkap</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">
+                24416255201023
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Bagas Nurdiansyah
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">
+                24416255201024
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">Salma Nabila</td>
+            </tr>
+          </table>
+        </div>
+        <div style="overflow-x: auto">
+          <b>Tabel Mata Kuliah</b>
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">
+                <u>Kode_MK</u>
+              </th>
+              <th style="padding: 8px; border: 1px solid #444">Nama_MK</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">IF001</td>
+              <td style="padding: 8px; border: 1px solid #444">Basis Data</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">IF002</td>
+              <td style="padding: 8px; border: 1px solid #444">Algoritma</td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Masalah:</b> Bagaimana cara mencatat bahwa 'Bagas' mengambil mata
+          kuliah 'Basis Data' dan 'Algoritma', sementara 'Salma' hanya mengambil
+          'Basis Data'? Jika kita tambahkan kolom Kode_MK di tabel Mahasiswa,
+          kita harus membuat dua baris data untuk Bagas, yang menyebabkan
+          duplikasi data nama dan NIM. Ini sangat tidak efisien dan melanggar
+          prinsip normalisasi database.
+        </p>
+
+        <hr />
+        <span class="post-date">28 September 2025</span>
+        <a href="index.html" class="back-link">← Kembali ke Halaman Utama</a>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-about">
+          <img src="asset/profile.jpg" alt="Foto Profil" class="footer-photo" />
+          <div>
+            <strong>Bagas Nurdiansyah</strong>
+            <p>Personal Blog</p>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <p>© 2025 Bagas Nurdiansyah. All Rights Reserved.</p>
+          <nav>
+            <a href="/index">Home</a> |
+            <a href="/profile">Profile</a>
+          </nav>
+        </div>
+
+        <div class="footer-social">
+          <a
+            href="https://github.com/Noriishere"
+            class="social-icon"
+            title="GitHub"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/bagas-nurdiansyah-026016289"
+            class="social-icon"
+            title="LinkedIn"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/bagasnrdiansy"
+            class="social-icon"
+            title="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://open.spotify.com/playlist/31ujp5M6nYnL1Jbt9GukAn?si=ouXvk3CpQ-OoI3wI8Z5sdg"
+            class="social-icon"
+            title="Spotify"
+            ><i class="fab fa-spotify"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
