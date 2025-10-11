@@ -1,126 +1,882 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apa itu Primary Key, Foreign Key dan juga Candidate Key ?</title> 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apa itu Primary Key, Foreign Key dan juga Candidate Key ?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/asset/styles.css" />
+  </head>
+  <body>
     <header>
-        <nav class="navbar">
-            <a href="/index" class="nav-branding">Personal Blog</a>
-            <ul class="nav-menu">
-                <li><a href="/index" class="nav-link">Profile</a></li>
-                <li><a href="mailto:noriyamashin@gmail.com" class="nav-link">Contact</a></li>
-            </ul>
-        </nav>
+      <nav class="navbar">
+        <a href="/index" class="nav-branding">Personal Blog</a>
+        <ul class="nav-menu">
+          <li><a href="/index" class="nav-link">Profile</a></li>
+          <li>
+            <a href="mailto:noriyamashin@gmail.com" class="nav-link">Contact</a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <main class="main-layout">
-        <aside class="profile-card">
-            <img src="asset/profile.jpg" alt="Foto Profil" class="profile-pic">
-            <h1>Bagas Nurdiansyah</h1>
-            <p class="title">Web Developer</p>
-            <ul class="contact-info">
-                <li><strong>NIM</strong><span>24416255201023</span></li>
-                <li><strong>Email</strong><span>if24.bagasnurdiansyah@mhs.ubpkarawang.ac.id</span></li>
-                <li><strong>Phone</strong><span>+62 89686027339</span></li>
-                <li><strong>Location</strong><span>Karawang</span></li>
-                <li><strong>Status</strong><span>Active</span></li>
-            </ul>
-            <a href="https://ubpkarawang.ac.id/" target="_blank" class="btn-link">
-                Website UBP Karawang
-            </a>
-        </aside>
+      <aside class="profile-card">
+        <img src="asset/profile.jpg" alt="Foto Profil" class="profile-pic" />
+        <h1>Bagas Nurdiansyah</h1>
+        <p class="title">Web Developer</p>
+        <ul class="contact-info">
+          <li><strong>NIM</strong><span>24416255201023</span></li>
+          <li>
+            <strong>Email</strong
+            ><span>if24.bagasnurdiansyah@mhs.ubpkarawang.ac.id</span>
+          </li>
+          <li><strong>Phone</strong><span>+62 89686027339</span></li>
+          <li><strong>Location</strong><span>Karawang</span></li>
+          <li><strong>Status</strong><span>Active</span></li>
+        </ul>
+        <a href="https://ubpkarawang.ac.id/" target="_blank" class="btn-link">
+          Website UBP Karawang
+        </a>
+      </aside>
 
-        <div class="content-container">
-            <h1>Apa Itu Primary key, Foreign Key, dan Candidate Key?</h1>
-            <p>
-                <b class="disclaimer">Disclaimer! :</b> Informasi yang saya sampaikan merupakan pemahaman pribadi yang didukung materi kuliah dan sumber online. Jika ada kesamaan, mohon hubungi admin.
-            </p>
-        
-            <h3>Apa itu Primary Key?</h3>
-            <p>
-                Apa itu Primary Key? dalam kasus ERD, Primary Key adalah sebuah kolom (atau beberapa kolom) yang dipilih untuk menjadi identitas unik bagi setiap baris data dalam sebuah tabel. Bayangkan seperti Nomor Induk Kependudukan (NIK) untuk setiap warga negara; tidak ada dua orang yang punya NIK yang sama dan setiap orang pasti punya satu. 
-            </p>
-        
-            <h3>Sifat-sifat Primary key</h3>
-            <div class="key-takeaways" style="margin-left = 10px">
-                        <h3>Kesimpulan Utama</h3>
-                        <ul>
-                            <li>Unik: Nilainya tidak boleh sama dengan baris lain dalam tabel yang sama.</li>
-                            <li>Tidak Boleh Kosong (NOT NULL): Setiap baris wajib memiliki nilai untuk kolom ini.</li>
-                            <li>Hanya Ada Satu: Setiap tabel hanya boleh memiliki satu Primary Key.</li>
-                        </ul>
-                    </div>
-            <div style="overflow-x:auto;">
-                <table style="width:100%; text-align: left; border-collapse: collapse;">
-                    <tr style="background-color: var(--card-color);">
-                        <th style="padding: 8px; border: 1px solid #444;">NIM</th>
-                        <th style="padding: 8px; border: 1px solid #444;">Nama_Lengkap</th>
-                        <th style="padding: 8px; border: 1px solid #444;">Jurusan</th>
-                    </tr>
-                    <tr>
-                        <td style="padding: 8px; border: 1px solid #444;">24416255201023</td>
-                        <td style="padding: 8px; border: 1px solid #444;">Bagas Nurdiansyah</td>
-                        <td style="padding: 8px; border: 1px solid #444;">Teknik Informatika</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 8px; border: 1px solid #444;">24416255201024</td>
-                        <td style="padding: 8px; border: 1px solid #444;">Salma Nabila Putrifani</td>
-                        <td style="padding: 8px; border: 1px solid #444;">Psikologi</td>
-                    </tr>
-                </table>
-            </div>
-        
-            <h3>Contoh Kode: Membuat Tabel dengan SQL</h3>
-            <p>
-                Untuk membuat tabel di atas, kita menggunakan bahasa perintah yang disebut SQL. Kodenya seperti ini:
-            </p>
-            <pre style="background-color: var(--card-color); padding: 1rem; border-radius: 5px; font-family: monospace; overflow-x: auto;"><code style="color: #e0e0e0;">CREATE TABLE Mahasiswa (
-            NIM VARCHAR(15) PRIMARY KEY,
-            Nama_Lengkap VARCHAR(100),
-            Jurusan VARCHAR(50)
-        );</code></pre>
-            <p>
-                Dengan basis data, informasi yang tadinya acak menjadi terstruktur, mudah dikelola, dan kaya akan wawasan.
-            </p>
-            
-            <span class="post-date">28 September 2025</span>
-            <a href="index.html" class="back-link">← Kembali ke Halaman Utama</a>
+      <div class="content-container">
+        <h1>Apa Itu Primary key, Foreign Key, dan Candidate Key?</h1>
+        <p>
+          <b class="disclaimer">Disclaimer! :</b> Informasi yang saya sampaikan
+          merupakan pemahaman pribadi yang didukung materi kuliah dan sumber
+          online. Jika ada kesamaan, mohon hubungi admin.
+        </p>
+
+        <h3 style="font-size: 2rem; background-color: rgb(69, 71, 71)">
+          Apa itu Primary Key?
+        </h3>
+        <p>
+          Apa itu Primary Key? dalam kasus ERD, Primary Key adalah sebuah kolom
+          (atau beberapa kolom) yang dipilih untuk menjadi identitas unik bagi
+          setiap baris data dalam sebuah tabel. Bayangkan seperti Nomor Induk
+          Kependudukan (NIK) untuk setiap warga negara; tidak ada dua orang yang
+          punya NIK yang sama dan setiap orang pasti punya satu.
+        </p>
+
+        <h3>Sifat-sifat Primary key</h3>
+        <div class="key-takeaways" style="margin-left: 30px">
+          <ul>
+            <li>
+              <b>Unik:</b> Nilainya tidak boleh sama dengan baris lain dalam
+              tabel yang sama.
+            </li>
+            <li>
+              <b>Tidak Boleh Kosong (NOT NULL):</b> Setiap baris wajib memiliki
+              nilai untuk kolom ini.
+            </li>
+            <li>
+              <b>Hanya Ada Satu:</b> Setiap tabel hanya boleh memiliki satu
+              Primary Key.
+            </li>
+          </ul>
         </div>
+        <h3>Contoh Primary yang diterapkan pada ERD - Table Mahasiswa</h3>
+        <div style="overflow-x: auto">
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">NIM</th>
+              <th style="padding: 8px; border: 1px solid #444">Nama_Lengkap</th>
+              <th style="padding: 8px; border: 1px solid #444">Jurusan</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">
+                24416255201023
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Bagas Nurdiansyah
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Teknik Informatika
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">
+                24416255201024
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Salma Nabila Putrifani
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">Psikologi</td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Penjelasan: </b> Untuk Setiap mahasiswa memiliki Nim yang berbeda,
+          alasannya kenapa? karena Primary key bersifat UNIQUE untuk setiap data
+          dan juga bersifat NOT NULL agar setiap data dapat di identifikasi
+          melalui primary key
+        </p>
+        <h3>Contoh Primary yang diterapkan pada ERD - Table Barang</h3>
+        <div style="overflow-x: auto">
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">Kode_barang</th>
+              <th style="padding: 8px; border: 1px solid #444">Nama_barang</th>
+              <th style="padding: 8px; border: 1px solid #444">Harga</th>
+              <th style="padding: 8px; border: 1px solid #444">Stok</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">ATK001</td>
+              <td style="padding: 8px; border: 1px solid #444">Pulpen</td>
+              <td style="padding: 8px; border: 1px solid #444">Rp 2.000</td>
+              <td style="padding: 8px; border: 1px solid #444">5</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">ATK002</td>
+              <td style="padding: 8px; border: 1px solid #444">Pensil</td>
+              <td style="padding: 8px; border: 1px solid #444">Rp 1.500</td>
+              <td style="padding: 8px; border: 1px solid #444">8</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">IDMIE002</td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Indomie Ayam Bawang
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">Rp 2.000</td>
+              <td style="padding: 8px; border: 1px solid #444">10</td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Penjelasan: </b> Pada tabel Barang, <b>Kode_barang</b> dijadikan
+          Primary Key. Alasannya adalah setiap barang pasti memiliki kode yang
+          berbeda untuk membedakannya dari barang lain. Primary Key bersifat
+          <b>UNIQUE</b> (unik) untuk setiap data dan <b>NOT NULL</b> (tidak
+          boleh kosong) agar setiap barang dapat diidentifikasi secara pasti.
+        </p>
+        <h3>Contoh Primary yang diterapkan pada ERD - Table Karyawan</h3>
+        <div style="overflow-x: auto">
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">
+                <u>NIK_Karyawan</u>
+              </th>
+              <th style="padding: 8px; border: 1px solid #444">Nama_Lengkap</th>
+              <th style="padding: 8px; border: 1px solid #444">Jabatan</th>
+              <th style="padding: 8px; border: 1px solid #444">Tgl_Masuk</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">202401001</td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Dewi Anggraini
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">Manager</td>
+              <td style="padding: 8px; border: 1px solid #444">2024-01-15</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">202401002</td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Bambang Setiawan
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">Staff IT</td>
+              <td style="padding: 8px; border: 1px solid #444">2024-01-20</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">202402003</td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Siti Hartinah
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">Akuntan</td>
+              <td style="padding: 8px; border: 1px solid #444">2024-02-05</td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Penjelasan: </b> Kolom <b>NIK_Karyawan</b> (Nomor Induk Karyawan)
+          adalah Primary Key yang ideal. Meskipun nama karyawan bisa saja ada
+          yang sama, NIK akan selalu unik untuk setiap individu di perusahaan
+          dan wajib diisi.
+        </p>
+        <h3>Contoh Primary yang diterapkan pada ERD - Table Transaksi</h3>
+        <div style="overflow-x: auto">
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">
+                <u>ID_Transaksi</u>
+              </th>
+              <th style="padding: 8px; border: 1px solid #444">
+                Tgl_Transaksi
+              </th>
+              <th style="padding: 8px; border: 1px solid #444">Total_Bayar</th>
+              <th style="padding: 8px; border: 1px solid #444">ID_Kasir</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">
+                TRX20251009001
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                2025-10-09 10:20:15
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">Rp 55.000</td>
+              <td style="padding: 8px; border: 1px solid #444">KSR02</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">
+                TRX20251009002
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                2025-10-09 10:22:40
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">Rp 12.000</td>
+              <td style="padding: 8px; border: 1px solid #444">KSR02</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">
+                TRX20251009003
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                2025-10-09 10:25:01
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">Rp 34.500</td>
+              <td style="padding: 8px; border: 1px solid #444">KSR01</td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Penjelasan: </b> Di tabel Transaksi, <b>ID_Transaksi</b> adalah
+          Primary Key. Setiap transaksi yang terjadi, meskipun pada hari yang
+          sama oleh kasir yang sama, akan memiliki ID uniknya sendiri. Ini
+          penting untuk melacak setiap nota penjualan secara individual.
+        </p>
+        <h3>Contoh Primary yang diterapkan pada ERD - Table Buku</h3>
+        <div style="overflow-x: auto">
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444"><u>ISBN</u></th>
+              <th style="padding: 8px; border: 1px solid #444">Judul_Buku</th>
+              <th style="padding: 8px; border: 1px solid #444">Penulis</th>
+              <th style="padding: 8px; border: 1px solid #444">Penerbit</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">
+                978-602-03-8591-0
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">Bumi Manusia</td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Pramoedya Ananta Toer
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Lentera Dipantara
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">
+                978-979-3062-79-8
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Laskar Pelangi
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Andrea Hirata
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Bentang Pustaka
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">
+                978-623-91287-2-2
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Filosofi Teras
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Henry Manampiring
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">Kompas</td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Penjelasan: </b> Untuk tabel Buku, <b>ISBN</b> (International
+          Standard Book Number) adalah Primary Key yang sempurna. ISBN adalah
+          standar kode unik yang diberikan untuk setiap edisi buku yang terbit
+          di seluruh dunia, sehingga tidak mungkin ada dua buku berbeda dengan
+          ISBN yang sama.
+        </p>
+        <h3 style="font-size: 2rem; background-color: rgb(69, 71, 71)">
+          Apa itu Foreign Key?
+        </h3>
+        <p>
+          <b>Foreign Key</b> adalah sebuah kolom (atau beberapa kolom) dalam
+          sebuah tabel yang nilainya merujuk pada <b>Primary Key</b> di tabel
+          lain. Fungsinya adalah untuk membangun hubungan atau relasi antar
+          tabel. Bayangkan seperti nomor rekam medis pasien; nomor tersebut ada
+          di tabel data diri pasien (sebagai Primary Key) dan juga dicantumkan
+          di setiap tabel riwayat kunjungannya (sebagai Foreign Key) untuk
+          menghubungkan kunjungan tersebut ke pasien yang benar.
+        </p>
+
+        <h3>Sifat-sifat Foreign Key</h3>
+        <div class="key-takeaways" style="margin-left: 30px">
+          <ul>
+            <li>
+              <b>Mengacu pada Primary Key:</b> Nilainya harus ada dan sesuai
+              dengan salah satu nilai di kolom Primary Key tabel induknya.
+            </li>
+            <li>
+              <b>Boleh Berulang (Tidak Unik):</b> Nilai Foreign Key boleh sama
+              untuk beberapa baris data. Contohnya, satu dosen (satu ID Dosen)
+              bisa mengajar banyak mahasiswa, sehingga ID Dosen akan muncul
+              berulang di tabel mahasiswa.
+            </li>
+            <li>
+              <b>Boleh Kosong (NULL):</b> Dalam beberapa kasus, Foreign Key bisa
+              dikosongkan jika relasinya bersifat opsional. Misalnya, seorang
+              pelanggan mungkin belum memiliki transaksi, sehingga ID Pelanggan
+              di tabel transaksi bisa saja kosong untuk data lain.
+            </li>
+          </ul>
+        </div>
+
+        <h3>
+          Contoh Foreign Key yang diterapkan pada ERD - Tabel Pesanan &
+          Pelanggan
+        </h3>
+        <p>Setiap pesanan harus dimiliki oleh satu pelanggan.</p>
+        <div style="overflow-x: auto; margin-bottom: 15px">
+          <b>Tabel Pelanggan (Tabel Induk)</b>
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">
+                <u>ID_Pelanggan</u>
+              </th>
+              <th style="padding: 8px; border: 1px solid #444">
+                Nama_Pelanggan
+              </th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">PEL001</td>
+              <td style="padding: 8px; border: 1px solid #444">Budi Santoso</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">PEL002</td>
+              <td style="padding: 8px; border: 1px solid #444">Ani Lestari</td>
+            </tr>
+          </table>
+        </div>
+        <div style="overflow-x: auto">
+          <b>Tabel Pesanan (Tabel Anak)</b>
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">
+                <u>ID_Pesanan</u>
+              </th>
+              <th style="padding: 8px; border: 1px solid #444">Tgl_Pesanan</th>
+              <th style="padding: 8px; border: 1px solid #444">
+                ID_Pelanggan (FK)
+              </th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">PSN01</td>
+              <td style="padding: 8px; border: 1px solid #444">2025-10-10</td>
+              <td style="padding: 8px; border: 1px solid #444">PEL001</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">PSN02</td>
+              <td style="padding: 8px; border: 1px solid #444">2025-10-11</td>
+              <td style="padding: 8px; border: 1px solid #444">PEL001</td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Penjelasan: </b> Kolom <b>ID_Pelanggan</b> di tabel Pesanan adalah
+          Foreign Key yang merujuk ke Primary Key <b>ID_Pelanggan</b> di tabel
+          Pelanggan. Ini memastikan setiap pesanan terhubung ke pelanggan yang
+          valid. Nilai 'PEL001' bisa muncul berkali-kali di tabel Pesanan karena
+          satu pelanggan bisa melakukan banyak pesanan.
+        </p>
+
+        <h3>
+          Contoh Foreign Key yang diterapkan pada ERD - Tabel Mahasiswa & Dosen
+        </h3>
+        <p>Setiap mahasiswa memiliki satu dosen pembimbing.</p>
+        <div style="overflow-x: auto; margin-bottom: 15px">
+          <b>Tabel Dosen (Tabel Induk)</b>
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444"><u>NIDN</u></th>
+              <th style="padding: 8px; border: 1px solid #444">Nama_Dosen</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">0410018001</td>
+              <td style="padding: 8px; border: 1px solid #444">Dr. Hartono</td>
+            </tr>
+          </table>
+        </div>
+        <div style="overflow-x: auto">
+          <b>Tabel Mahasiswa (Tabel Anak)</b>
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444"><u>NIM</u></th>
+              <th style="padding: 8px; border: 1px solid #444">
+                Nama_Mahasiswa
+              </th>
+              <th style="padding: 8px; border: 1px solid #444">
+                NIDN_Pembimbing (FK)
+              </th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">
+                24416255201023
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Bagas Nurdiansyah
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">0410018001</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">
+                24416255201024
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">Salma Nabila</td>
+              <td style="padding: 8px; border: 1px solid #444">0410018001</td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Penjelasan: </b> Kolom <b>NIDN_Pembimbing</b> pada tabel Mahasiswa
+          adalah Foreign Key yang mengacu pada kolom <b>NIDN</b> di tabel Dosen.
+          Ini menghubungkan setiap mahasiswa dengan dosen pembimbingnya.
+        </p>
+
+        <h3>
+          Contoh Foreign Key yang diterapkan pada ERD - Tabel Pegawai &
+          Departemen
+        </h3>
+        <p>Setiap pegawai bekerja pada satu departemen.</p>
+        <div style="overflow-x: auto; margin-bottom: 15px">
+          <b>Tabel Departemen (Tabel Induk)</b>
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">
+                <u>ID_Dept</u>
+              </th>
+              <th style="padding: 8px; border: 1px solid #444">Nama_Dept</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">DEP01</td>
+              <td style="padding: 8px; border: 1px solid #444">Keuangan</td>
+            </tr>
+          </table>
+        </div>
+        <div style="overflow-x: auto">
+          <b>Tabel Pegawai (Tabel Anak)</b>
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">
+                <u>ID_Pegawai</u>
+              </th>
+              <th style="padding: 8px; border: 1px solid #444">Nama_Pegawai</th>
+              <th style="padding: 8px; border: 1px solid #444">ID_Dept (FK)</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">PG001</td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Dewi Anggraini
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">DEP01</td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Penjelasan: </b> Kolom <b>ID_Dept</b> di tabel Pegawai adalah
+          Foreign Key yang terhubung ke Primary Key <b>ID_Dept</b> di tabel
+          Departemen, memastikan setiap pegawai terdaftar di departemen yang
+          benar.
+        </p>
+
+        <h3>
+          Contoh Foreign Key yang diterapkan pada ERD - Tabel Pasien & Rumah
+          Sakit
+        </h3>
+        <p>Setiap pasien dirawat di satu rumah sakit tertentu.</p>
+        <div style="overflow-x: auto; margin-bottom: 15px">
+          <b>Tabel Rumah Sakit (Tabel Induk)</b>
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">
+                <u>ID_RumahSakit</u>
+              </th>
+              <th style="padding: 8px; border: 1px solid #444">
+                Nama_RumahSakit
+              </th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">RS001</td>
+              <td style="padding: 8px; border: 1px solid #444">
+                RS Harapan Sehat
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div style="overflow-x: auto">
+          <b>Tabel Pasien (Tabel Anak)</b>
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">
+                <u>ID_Pasien</u>
+              </th>
+              <th style="padding: 8px; border: 1px solid #444">Nama_Pasien</th>
+              <th style="padding: 8px; border: 1px solid #444">
+                ID_RumahSakit (FK)
+              </th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">PS001</td>
+              <td style="padding: 8px; border: 1px solid #444">Andi Saputra</td>
+              <td style="padding: 8px; border: 1px solid #444">RS001</td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Penjelasan: </b> Kolom <b>ID_RumahSakit</b> di tabel Pasien adalah
+          Foreign Key yang merelasikan data pasien ke tabel Rumah Sakit,
+          menunjukkan di mana pasien tersebut dirawat.
+        </p>
+
+        <h3>
+          Contoh Foreign Key yang diterapkan pada ERD - Tabel Komentar &
+          Postingan Blog
+        </h3>
+        <p>Setiap komentar diberikan pada satu postingan blog.</p>
+        <div style="overflow-x: auto; margin-bottom: 15px">
+          <b>Tabel Postingan (Tabel Induk)</b>
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">
+                <u>ID_Post</u>
+              </th>
+              <th style="padding: 8px; border: 1px solid #444">Judul_Post</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">POST01</td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Belajar Database
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div style="overflow-x: auto">
+          <b>Tabel Komentar (Tabel Anak)</b>
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">
+                <u>ID_Komentar</u>
+              </th>
+              <th style="padding: 8px; border: 1px solid #444">Isi_Komentar</th>
+              <th style="padding: 8px; border: 1px solid #444">ID_Post (FK)</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">KOM01</td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Artikel yang bagus!
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">POST01</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">KOM02</td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Sangat membantu.
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">POST01</td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Penjelasan: </b> Kolom <b>ID_Post</b> di tabel Komentar berfungsi
+          sebagai Foreign Key yang merujuk ke tabel Postingan. Ini memastikan
+          setiap komentar terhubung dengan postingan yang dikomentarinya.
+        </p>
+
+        <hr />
+
+        <h3 style="font-size: 2rem; background-color: rgb(69, 71, 71)">
+          Apa itu Candidate Key?
+        </h3>
+        <p>
+          <b>Candidate Key</b> adalah satu atau beberapa kolom dalam tabel yang
+          dapat secara unik mengidentifikasi setiap baris data. Semua Candidate
+          Key memiliki potensi untuk dipilih menjadi <b>Primary Key</b>. Sebuah
+          tabel bisa memiliki beberapa Candidate Key, namun hanya satu yang akan
+          dinobatkan sebagai Primary Key. Sisanya disebut sebagai
+          <b>Alternate Key</b>.
+        </p>
+
+        <h3>Sifat-sifat Candidate Key</h3>
+        <div class="key-takeaways" style="margin-left: 30px">
+          <ul>
+            <li>
+              <b>Unik:</b> Nilainya tidak boleh ada yang sama dalam satu tabel.
+            </li>
+            <li>
+              <b>Tidak Boleh Kosong (NOT NULL):</b> Wajib memiliki nilai untuk
+              setiap barisnya.
+            </li>
+            <li>
+              <b>Minimal:</b> Tidak boleh memiliki atribut tambahan yang tidak
+              diperlukan untuk identifikasi unik (khususnya untuk composite
+              key).
+            </li>
+          </ul>
+        </div>
+
+        <h3>Contoh Candidate Key pada Tabel Mahasiswa</h3>
+        <div style="overflow-x: auto">
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">NIM</th>
+              <th style="padding: 8px; border: 1px solid #444">Email_Kampus</th>
+              <th style="padding: 8px; border: 1px solid #444">No_KTP</th>
+              <th style="padding: 8px; border: 1px solid #444">Nama_Lengkap</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">
+                24416255201023
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                if24.bagas@mhs.ubp.ac.id
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                32150xxxxx0001
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Bagas Nurdiansyah
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Penjelasan: </b> Dalam tabel ini, kolom <b>NIM</b>,
+          <b>Email_Kampus</b>, dan <b>No_KTP</b> semuanya adalah Candidate Key
+          karena ketiganya dijamin unik untuk setiap mahasiswa. Dari ketiganya,
+          <b>NIM</b> biasanya dipilih sebagai Primary Key, sedangkan
+          Email_Kampus dan No_KTP menjadi Alternate Key.
+        </p>
+
+        <h3>Contoh Candidate Key pada Tabel Karyawan</h3>
+        <div style="overflow-x: auto">
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">NIK_Karyawan</th>
+              <th style="padding: 8px; border: 1px solid #444">
+                Email_Perusahaan
+              </th>
+              <th style="padding: 8px; border: 1px solid #444">
+                Username_Login
+              </th>
+              <th style="padding: 8px; border: 1px solid #444">Nama_Lengkap</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">202401001</td>
+              <td style="padding: 8px; border: 1px solid #444">
+                dewi.a@ptabc.com
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                dewi.anggraini
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Dewi Anggraini
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Penjelasan: </b> Kolom <b>NIK_Karyawan</b>,
+          <b>Email_Perusahaan</b>, dan <b>Username_Login</b> adalah Candidate
+          Key. Semuanya unik dan bisa mengidentifikasi seorang karyawan.
+          Biasanya, <b>NIK_Karyawan</b> yang dipilih menjadi Primary Key.
+        </p>
+
+        <h3>Contoh Candidate Key pada Tabel Produk</h3>
+        <div style="overflow-x: auto">
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">Kode_Produk</th>
+              <th style="padding: 8px; border: 1px solid #444">SKU</th>
+              <th style="padding: 8px; border: 1px solid #444">Barcode</th>
+              <th style="padding: 8px; border: 1px solid #444">Nama_Produk</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">ATK001</td>
+              <td style="padding: 8px; border: 1px solid #444">PN-PLT-BL-01</td>
+              <td style="padding: 8px; border: 1px solid #444">89912345001</td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Pulpen Pilot Biru
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Penjelasan: </b> Di sini, <b>Kode_Produk</b>, <b>SKU</b> (Stock
+          Keeping Unit), dan <b>Barcode</b> semuanya adalah Candidate Key.
+          Masing-masing memiliki nilai unik untuk setiap produk.
+          <b>Kode_Produk</b> sering dipilih sebagai Primary Key untuk penggunaan
+          internal.
+        </p>
+
+        <h3>Contoh Candidate Key pada Tabel Pengguna</h3>
+        <div style="overflow-x: auto">
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">ID_Pengguna</th>
+              <th style="padding: 8px; border: 1px solid #444">Username</th>
+              <th style="padding: 8px; border: 1px solid #444">Email</th>
+              <th style="padding: 8px; border: 1px solid #444">Nama_Lengkap</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">USR101</td>
+              <td style="padding: 8px; border: 1px solid #444">bagas_n</td>
+              <td style="padding: 8px; border: 1px solid #444">
+                bagas.n@email.com
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Bagas Nurdiansyah
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Penjelasan: </b> Kolom <b>ID_Pengguna</b>, <b>Username</b>, dan
+          <b>Email</b> adalah Candidate Key karena nilainya unik untuk setiap
+          pengguna. <b>ID_Pengguna</b> adalah pilihan umum untuk Primary Key
+          karena nilainya numerik atau alfanumerik pendek dan konsisten.
+        </p>
+
+        <h3>Contoh Candidate Key pada Tabel Mobil</h3>
+        <div style="overflow-x: auto">
+          <table
+            style="width: 100%; text-align: left; border-collapse: collapse"
+          >
+            <tr style="background-color: var(--card-color)">
+              <th style="padding: 8px; border: 1px solid #444">Nomor_Polisi</th>
+              <th style="padding: 8px; border: 1px solid #444">Nomor_Rangka</th>
+              <th style="padding: 8px; border: 1px solid #444">Nomor_Mesin</th>
+              <th style="padding: 8px; border: 1px solid #444">Model</th>
+            </tr>
+            <tr>
+              <td style="padding: 8px; border: 1px solid #444">T 1234 ABC</td>
+              <td style="padding: 8px; border: 1px solid #444">
+                MH1GB3xxxxK12345
+              </td>
+              <td style="padding: 8px; border: 1px solid #444">GB3E-123xxxx</td>
+              <td style="padding: 8px; border: 1px solid #444">
+                Toyota Avanza
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p style="margin-top: 10px">
+          <b>Penjelasan: </b> Untuk data kendaraan, <b>Nomor_Polisi</b>,
+          <b>Nomor_Rangka</b>, dan <b>Nomor_Mesin</b> adalah Candidate Key.
+          Semuanya unik untuk setiap mobil. <b>Nomor_Rangka</b> (VIN) seringkali
+          menjadi pilihan terbaik untuk Primary Key karena sifatnya yang unik
+          secara global dan permanen, tidak seperti Nomor Polisi yang bisa
+          berubah.
+        </p>
+
+        <span class="post-date">28 September 2025</span>
+        <a href="index.html" class="back-link">← Kembali ke Halaman Utama</a>
+      </div>
     </main>
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-about">
-                <img src="asset/profile.jpg" alt="Foto Profil" class="footer-photo">
-                <div>
-                    <strong>Bagas Nurdiansyah</strong>
-                    <p>Personal Blog</p>
-                </div>
-            </div>
-
-            <div class="footer-links">
-                <p>&copy; 2025 Bagas Nurdiansyah. All Rights Reserved.</p>
-                <nav>
-                    <a href="/index">Home</a> | 
-                    <a href="/profile">Profile</a>
-                </nav>
-            </div>
-
-            <div class="footer-social">
-                <a href="https://github.com/Noriishere" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/bagas-nurdiansyah-026016289" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/bagasnrdiansy" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://open.spotify.com/playlist/31ujp5M6nYnL1Jbt9GukAn?si=ouXvk3CpQ-OoI3wI8Z5sdg" class="social-icon" title="Spotify"><i class="fab fa-spotify"></i></a>
-            </div>
+      <div class="footer-container">
+        <div class="footer-about">
+          <img src="asset/profile.jpg" alt="Foto Profil" class="footer-photo" />
+          <div>
+            <strong>Bagas Nurdiansyah</strong>
+            <p>Personal Blog</p>
+          </div>
         </div>
-    </footer>
-</body>
 
+        <div class="footer-links">
+          <p>&copy; 2025 Bagas Nurdiansyah. All Rights Reserved.</p>
+          <nav>
+            <a href="/index">Home</a> |
+            <a href="/profile">Profile</a>
+          </nav>
+        </div>
+
+        <div class="footer-social">
+          <a
+            href="https://github.com/Noriishere"
+            class="social-icon"
+            title="GitHub"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/bagas-nurdiansyah-026016289"
+            class="social-icon"
+            title="LinkedIn"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/bagasnrdiansy"
+            class="social-icon"
+            title="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://open.spotify.com/playlist/31ujp5M6nYnL1Jbt9GukAn?si=ouXvk3CpQ-OoI3wI8Z5sdg"
+            class="social-icon"
+            title="Spotify"
+            ><i class="fab fa-spotify"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
