@@ -31,6 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
             pageUrl: 'erd.html',
             content: `<p>Artikel ini membahas tiga komponen fundamental dalam sebuah ERD (Entity-Relationship Diagram) yang menjadi dasar perancangan database.</p>
                       <p>Pelajari apa itu Entitas (objek), Atribut (deskripsi), dan Relasi (penghubung) dengan analogi sederhana untuk memahami bagaimana sebuah database distrukturkan.</p>`
+        },
+        "apa itu primary key, foreign key, dan candidate key?":{
+            pageUrl: 'primary-key.html',
+            content: `<p>Apa itu Primary Key? dalam kasus ERD, Primary Key adalah sebuah kolom (atau beberapa kolom) yang dipilih untuk menjadi identitas unik bagi setiap baris data dalam sebuah tabel.</p>
+                      <p>Memahami apa itu Primary Key, Foreign Key, dan Candidate Key</p>`
         }
     };
 
