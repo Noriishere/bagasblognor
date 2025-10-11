@@ -36,6 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
             pageUrl: 'primary-key.html',
             content: `<p>Apa itu Primary Key? dalam kasus ERD, Primary Key adalah sebuah kolom (atau beberapa kolom) yang dipilih untuk menjadi identitas unik bagi setiap baris data dalam sebuah tabel.</p>
                       <p>Memahami apa itu Primary Key, Foreign Key, dan Candidate Key</p>`
+        },
+        "relasi dan masalah many-to-many": {
+            "pageUrl": "many-tomany.html",
+            "content": "<p>Relasi adalah fondasi dari database yang terstruktur, menghubungkan satu tabel dengan tabel lainnya. Namun, tidak semua hubungan bisa diimplementasikan dengan mudah.</p><p>Artikel ini membahas mengapa relasi Many-to-Many (M:N).</p>"
         }
     };
 
