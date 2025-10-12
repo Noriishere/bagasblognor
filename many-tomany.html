@@ -207,6 +207,66 @@
         </p>
 
         <hr />
+        <h3 style="font-size: 2rem; background-color: rgb(69, 71, 71)">
+              Solusi: Menggunakan Tabel Asosiatif (Junction Table)
+            </h3>
+            <p>
+              Solusi standar untuk mengatasi relasi <i>many-to-many</i> adalah dengan "memecahnya" menjadi dua relasi <b>one-to-many (1:N)</b> menggunakan tabel perantara. Tabel ini sering disebut <b>tabel asosiatif</b>, <b>tabel penghubung</b>, atau <b>junction table</b>.
+            </p>
+            <p>Tabel ini berfungsi sebagai jembatan yang menghubungkan kedua entitas utama. Ia akan berisi <i>foreign key</i> dari kedua tabel yang dihubungkannya.</p>
+        
+            <h3>Implementasi Solusi pada Kasus Mahasiswa & Mata Kuliah</h3>
+            <p>Kita akan membuat tabel baru bernama <b>KRS_Detail</b> (Kartu Rencana Studi Detail).</p>
+            
+            <div style="overflow-x: auto;">
+                <b>Tabel KRS_Detail (Junction Table)</b>
+                <table style="width: 100%; text-align: left; border-collapse: collapse">
+                    <tr style="background-color: var(--card-color)">
+                        <th style="padding: 8px; border: 1px solid #444"><u>ID_KRS</u></th>
+                        <th style="padding: 8px; border: 1px solid #444">NIM_Mahasiswa (FK)</th>
+                        <th style="padding: 8px; border: 1px solid #444">Kode_MK_Pilihan (FK)</th>
+                        <th style="padding: 8px; border: 1px solid #444">Nilai_Huruf</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #444">1</td>
+                        <td style="padding: 8px; border: 1px solid #444">24416255201023</td>
+                        <td style="padding: 8px; border: 1px solid #444">IF001</td>
+                        <td style="padding: 8px; border: 1px solid #444">A</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #444">2</td>
+                        <td style="padding: 8px; border: 1px solid #444">24416255201023</td>
+                        <td style="padding: 8px; border: 1px solid #444">IF002</td>
+                        <td style="padding: 8px; border: 1px solid #444">B+</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #444">3</td>
+                        <td style="padding: 8px; border: 1px solid #444">24416255201024</td>
+                        <td style="padding: 8px; border: 1px solid #444">IF001</td>
+                        <td style="padding: 8px; border: 1px solid #444">A-</td>
+                    </tr>
+                </table>
+            </div>
+            <p style="margin-top: 10px">
+              <b>Penjelasan Solusi:</b>
+            </p>
+            <div class="key-takeaways" style="margin-left: 30px">
+                <ul>
+                    <li>
+                        Relasi M:N antara <b>Mahasiswa</b> dan <b>Mata Kuliah</b> dipecah.
+                    </li>
+                    <li>
+                        Sekarang, tabel <b>Mahasiswa</b> memiliki relasi <i>one-to-many</i> ke tabel <b>KRS_Detail</b>. (Satu mahasiswa bisa punya banyak baris KRS).
+                    </li>
+                    <li>
+                        Tabel <b>Mata Kuliah</b> juga memiliki relasi <i>one-to-many</i> ke tabel <b>KRS_Detail</b>. (Satu mata kuliah bisa diambil oleh banyak mahasiswa).
+                    </li>
+                    <li>
+                        Tabel <b>KRS_Detail</b> kini menjadi tempat yang ideal untuk menyimpan atribut yang spesifik pada hubungan tersebut, seperti <b>Nilai_Huruf</b>, tanpa menyebabkan duplikasi data.
+                    </li>
+                </ul>
+            </div>
+            <p>Dengan pendekatan ini, struktur database menjadi lebih bersih, logis, dan efisien. Masalah redundansi, ambiguitas, dan anomali data dapat dihindari.</p>
         <span class="post-date">28 September 2025</span>
         <a href="index.html" class="back-link">← Kembali ke Halaman Utama</a>
       </div>
