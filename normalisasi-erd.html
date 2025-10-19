@@ -45,103 +45,102 @@
             <article class="blog-post">
                 <header class="post-header">
                     <h1>Apa Itu ERD dan Normalisasi Basis Data?</h1>
-                    <p>
-                        <b class="disclaimer">Disclaimer! :</b> Informasi yang saya sampaikan merupakan pemahaman pribadi yang didukung materi kuliah dan sumber online. Jika ada kesamaan, mohon hubungi admin.
-                    </p>
-                </header>
-
-                                <h3>Analogi 1: Cetak Biru (ERD)</h3>
-                <img src="asset/library.png" alt="Analogi ERD" class="post-image" style="height: 250px; object-fit: cover;">
-                <p>
-                    <b>ERD (Entity-Relationship Diagram)</b> adalah cetak biru atau *blueprint* dari basis data kita. Sebelum membangun rumah, arsitek membuat gambar yang menunjukkan ada ruangan apa saja (Entitas), pintu penghubung antar ruangan (Relasi), dan detail tiap ruangan seperti 'jumlah jendela' (Atribut).
-                </p>
-                <p>
-                    Dalam basis data, ERD membantu kita merancang secara visual:
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li><b>Entitas:</b> Objek utama (misal: 'Mahasiswa', 'MataKuliah').</li>
-                        <li><b>Atribut:</b> Detail dari entitas (misal: 'NIM' dan 'Nama' pada Mahasiswa).</li>
-                        <li><b>Relasi:</b> Hubungan antar entitas (misal: Mahasiswa 'Mengambil' MataKuliah).</li>
-                    </ul>
-                    ERD adalah tahap desain konseptual (ide) sebelum kita benar-benar membuat tabel.
-                </p>
-              
-                <h3>Analogi 2: Merapikan Lemari (Normalisasi)</h3>
-                <img src="asset/library.png" alt="Analogi Normalisasi" class="post-image" style="height: 250px; object-fit: cover;">
-                <p>
-                    <b>Normalisasi</b> adalah proses merapikan tabel yang sudah kita buat (berdasarkan ERD) agar efisien. Bayangkan Anda punya satu lemari besar tempat menyimpan baju, celana, kaos kaki, dan sepatu (Tabel Un-normalized). Akan susah mencari barang dan memakan tempat.
-                </p>
-                <p>
-                    Normalisasi adalah proses membagi lemari besar itu menjadi rak-rak khusus: rak sepatu, rak baju, rak celana (Tabel Normalized). Tujuannya adalah untuk <b>mengurangi redundansi (duplikasi) data</b> dan <b>mencegah anomali</b> (keanehan saat update, insert, atau delete data).
-                </p>
-                
-                <h3>Contoh Teknis: Tabel 'KRS' Belum Normal</h3>
-                <p>
-                    Bayangkan kita punya satu tabel besar untuk menyimpan data KRS. Ini adalah tabel yang belum normal (Un-normalized).
-                </p>
-                <div style="overflow-x:auto;">
-                    <table style="width:100%; text-align: left; border-collapse: collapse;">
-                        <tr style="background-color: var(--card-color);">
-          _                 <th style="padding: 8px; border: 1px solid #444;">NIM</th>
-                            <th style="padding: 8px; border: 1px solid #444;">Nama_Mahasiswa</th>
-                            <th style="padding: 8px; border: 1px solid #444;">Kode_MK</th>
-                            <th style="padding: 8px; border: 1px solid #444;">Nama_MataKuliah</th>
-                            <th style="padding: 8px; border: 1px solid #444;">Dosen</th>
-                      </tr>
-                      <tr>
-                            <td style="padding: 8px; border: 1px solid #444;">24416255201023</td>
-                            <td style="padding: 8px; border: 1px solid #444;">Bagas Nurdiansyah</td>
-                            <td style="padding: 8px; border: 1px solid #444;">IF001</td>
-                            <td style="padding: 8px; border: 1px solid #444;">Basis Data</td>
-                            <td style="padding: 8px; border: 1px solid #444;">Dr. Budi</td>
-                      </tr>
-                      <tr>
-                            <td style="padding: 8px; border: 1px solid #444;">24416255201023</td>
-                            <td style="padding: 8px; border: 1px solid #444;">Bagas Nurdiansyah</td>
-                            <td style="padding: 8px; border: 1px solid #444;">IF002</td>
-                            <td style="padding: 8px; border: 1px solid #444;">Pemrograman Web</td>
-                            <td style="padding: 8px; border: 1px solid #444;">Dr. Susi</td>
-                      </tr>
-                      <tr>
-                            <td style="padding: 8px; border: 1px solid #444;">24416255201024</td>
-                            <td style="padding: 8px; border: 1px solid #444;">Salma Nabila</td>
-                            <td style="padding: 8px; border: 1px solid #444;">IF001</td>
-                            <td style="padding: 8px; border: 1px solid #444;">Basis Data</td>
-                            <td style="padding: 8px; border: 1px solid #444;">Dr. Budi</td>
-                      </tr>
-                    </table>
-                </div>
-                <p>
-                    <b>Masalah (Redundansi):</b> Nama 'Bagas Nurdiansyah' dan 'Basis Data' di-input berulang kali. Jika Dr. Budi ganti nama, kita harus mengubahnya di setiap baris yang mengambil matkul Basis Data. Boros dan rawan salah!
-                </p>
-                
-                <h3>Contoh Kode: Hasil Normalisasi (SQL)</h3>
-                <p>
-                    Kita "merapikan" tabel tadi dengan memecahnya menjadi 3 tabel yang lebih fokus, menggunakan kunci (PRIMARY KEY & FOREIGN KEY) sebagai penghubung.
-                </p>
-                                <pre style="background-color: var(--card-color); padding: 1rem; border-radius: 5px; font-family: monospace; overflow-x: auto;"><code style="color: #e0e0e0;">-- 1. Tabel Mahasiswa (Hanya data mahasiswa)
-CREATE TABLE Mahasiswa (
-    NIM VARCHAR(15) PRIMARY KEY,
-    Nama_Lengkap VARCHAR(100)
-);
-
--- 2. Tabel MataKuliah (Hanya data matkul)
-CREATE TABLE MataKuliah (
-    Kode_MK VARCHAR(10) PRIMARY KEY,
-    Nama_MataKuliah VARCHAR(100),
-    Dosen VARCHAR(100)
-);
-
--- 3. Tabel KRS (Hanya berisi 'relasi')
-CREATE TABLE KRS (
-    ID_KRS INT PRIMARY KEY,
-    NIM_Mahasiswa VARCHAR(15),
-    Kode_MK_Kuliah VARCHAR(10),
-    FOREIGN KEY (NIM_Mahasiswa) REFERENCES Mahasiswa(NIM),
-s    FOREIGN KEY (Kode_MK_Kuliah) REFERENCES MataKuliah(Kode_MK)
-);</code></pre>
-                <p>
-            _       Sekarang, jika Bagas ganti nama, kita cukup ubah 1 baris di tabel 'Mahasiswa'. Jika Dr. Budi ganti nama, kita cukup ubah 1 baris di tabel 'MataKuliah'. Data menjadi efisien, konsisten, dan terhindar dari anomali. Itulah inti dari normalisasi.
-                </p>
+                      <p>
+                          <b class="disclaimer">Disclaimer! :</b> Informasi yang saya sampaikan merupakan pemahaman pribadi yang didukung materi kuliah dan sumber online. Jika ada kesamaan, mohon hubungi admin.
+                      </p>
+                      <h3>Analogi 1: Cetak Biru (ERD)</h3>
+                      <img src="asset/library.png" alt="Analogi ERD" class="post-image" style="height: 250px; object-fit: cover;">
+                      <p>
+                          <b>ERD (Entity-Relationship Diagram)</b> adalah cetak biru atau *blueprint* dari basis data kita. Sebelum membangun rumah, arsitek membuat gambar yang menunjukkan ada ruangan apa saja (Entitas), pintu penghubung antar ruangan (Relasi), dan detail tiap ruangan seperti 'jumlah jendela' (Atribut).
+                      </p>
+                      <p>
+                          Dalam basis data, ERD membantu kita merancang secara visual:
+                          <ul style="margin-left: 20px; margin-top: 10px;">
+                              <li><b>Entitas:</b> Objek utama (misal: 'Mahasiswa', 'MataKuliah').</li>
+                              <li><b>Atribut:</b> Detail dari entitas (misal: 'NIM' dan 'Nama' pada Mahasiswa).</li>
+                              <li><b>Relasi:</b> Hubungan antar entitas (misal: Mahasiswa 'Mengambil' MataKuliah).</li>
+                          </ul>
+                          ERD adalah tahap desain konseptual (ide) sebelum kita benar-benar membuat tabel.
+                      </p>
+                  
+                      <h3>Analogi 2: Merapikan Lemari (Normalisasi)</h3>
+                                  <img src="asset/library.png" alt="Analogi Normalisasi" class="post-image" style="height: 250px; object-fit: cover;">
+                      <p>
+                          <b>Normalisasi</b> adalah proses merapikan tabel yang sudah kita buat (berdasarkan ERD) agar efisien. Bayangkan Anda punya satu lemari besar tempat menyimpan baju, celana, kaos kaki, dan sepatu (Tabel Un-normalized). Akan susah mencari barang dan memakan tempat.
+                      </p>
+                      <p>
+                          Normalisasi adalah proses membagi lemari besar itu menjadi rak-rak khusus: rak sepatu, rak baju, rak celana (Tabel Normalized). Tujuannya adalah untuk <b>mengurangi redundansi (duplikasi) data</b> dan <b>mencegah anomali</b> (keanehan saat update, insert, atau delete data).
+                      </p>
+                      
+                      <h3>Contoh Teknis: Tabel 'KRS' Belum Normal</h3>
+                      <p>
+                          Bayangkan kita punya satu tabel besar untuk menyimpan data KRS. Ini adalah tabel yang belum normal (Un-normalized).
+                      </p>
+                      <div style="overflow-x:auto;">
+                          <table style="width:100%; text-align: left; border-collapse: collapse;">
+                              <tr style="background-color: var(--card-color);">
+                                  <th style="padding: 8px; border: 1px solid #444;">NIM</th>
+                                  <th style="padding: 8px; border: 1px solid #444;">Nama_Mahasiswa</th>
+                                  <th style="padding: 8px; border: 1px solid #444;">Kode_MK</th>
+            _                   <th style="padding: 8px; border: 1px solid #444;">Nama_MataKuliah</th>
+                                  <th style="padding: 8px; border: 1px solid #444;">Dosen</th>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 8px; border: 1px solid #444;">24416255201023</td>
+                                  <td style="padding: 8px; border: 1px solid #444;">Bagas Nurdiansyah</td>
+                                  <td style="padding: 8px; border: 1px solid #444;">IF001</td>
+                                  <td style="padding: 8px; border: 1px solid #444;">Basis Data</td>
+                                  <td style="padding: 8px; border: 1px solid #444;">Dr. Budi</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 8px; border: 1px solid #444;">24416255201023</td>
+                                  <td style="padding: 8px; border: 1px solid #444;">Bagas Nurdiansyah</td>
+                                  <td style="padding: 8px; border: 1px solid #444;">IF002</td>
+                                  <td style="padding: 8px; border: 1px solid #444;">Pemrograman Web</td>
+                                  <td style="padding: 8px; border: 1px solid #444;">Dr. Susi</td>
+                              </tr>
+                              <tr>
+                                  <td style="padding: 8px; border: 1px solid #444;">24416255201024</td>
+                                  <td style="padding: 8px; border: 1px solid #444;">Salma Nabila</td>
+                          _       <td style="padding: 8px; border: 1px solid #444;">IF001</td>
+                                  <td style="padding: 8px; border: 1px solid #444;">Basis Data</td>
+                                  <td style="padding: 8px; border: 1px solid #444;">Dr. Budi</td>
+                              </tr>
+                          </table>
+                      </div>
+                      <p>
+                          <b>Masalah (Redundansi):</b> Nama 'Bagas Nurdiansyah' dan 'Basis Data' di-input berulang kali. Jika Dr. Budi ganti nama, kita harus mengubahnya di setiap baris yang mengambil matkul Basis Data. Boros dan rawan salah!
+                      </p>
+                  
+                      <h3>Contoh Kode: Hasil Normalisasi (SQL)</h3>
+                      <p>
+                          Kita "merapikan" tabel tadi dengan memecahnya menjadi 3 tabel yang lebih fokus, menggunakan kunci (PRIMARY KEY & FOREIGN KEY) sebagai penghubung.
+                      </p>
+                      <pre style="background-color: var(--card-color); padding: 1rem; border-radius: 5px; font-family: monospace; overflow-x: auto;"><code style="color: #e0e0e0;">-- 1. Tabel Mahasiswa (Hanya data mahasiswa)
+          CREATE TABLE Mahasiswa (
+              NIM VARCHAR(15) PRIMARY KEY,
+              Nama_Lengkap VARCHAR(100)
+          );
+          
+          -- 2. Tabel MataKuliah (Hanya data matkul)
+          CREATE TABLE MataKuliah (
+              Kode_MK VARCHAR(10) PRIMARY KEY,
+              Nama_MataKuliah VARCHAR(100),
+              Dosen VARCHAR(100)
+          );
+          
+          -- 3. Tabel KRS (Hanya berisi 'relasi')
+          CREATE TABLE KRS (
+          img src="asset/library.png" alt="Analogi Normalisasi" class="post-image" style="height: 250px; object-fit: cover;">
+              ID_KRS INT PRIMARY KEY,
+              NIM_Mahasiswa VARCHAR(15),
+              Kode_MK_Kuliah VARCHAR(10),
+              FOREIGN KEY (NIM_Mahasiswa) REFERENCES Mahasiswa(NIM),
+              FOREIGN KEY (Kode_MK_Kuliah) REFERENCES MataKuliah(Kode_MK)
+            );</code></pre>
+            <p>
+                Sekarang, jika Bagas ganti nama, kita cukup ubah 1 baris di tabel 'Mahasiswa'. Jika Dr. Budi ganti nama, kita cukup ubah 1 baris di tabel 'MataKuliah'. Data menjadi efisien, konsisten, dan terhindar dari anomali. Itulah inti dari normalisasi.
+            </p>
             
             <span class="post-date">19 Oktober 2025</span>
             <a href="index.html" class="back-link">← Kembali ke Halaman Utama</a>
@@ -179,3 +178,4 @@ s    FOREIGN KEY (Kode_MK_Kuliah) REFERENCES MataKuliah(Kode_MK)
     </footer>
 </body>
 </html>
+tolong paragraph nya jangan gitu
