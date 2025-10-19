@@ -38,8 +38,23 @@ document.addEventListener('DOMContentLoaded', () => {
                       <p>Memahami apa itu Primary Key, Foreign Key, dan Candidate Key</p>`
         },
         "relasi pada erd dan masalah many-to-many": {
-            "pageUrl": "many-tomany.html",
-            "content": "<p>Relasi adalah fondasi dari database yang terstruktur, menghubungkan satu tabel dengan tabel lainnya. Namun, tidak semua hubungan bisa diimplementasikan dengan mudah.</p><p>Artikel ini membahas mengapa relasi Many-to-Many (M:N).</p>"
+            pageUrl: "many-tomany.html",
+            content: "<p>Relasi adalah fondasi dari database yang terstruktur, menghubungkan satu tabel dengan tabel lainnya. Namun, tidak semua hubungan bisa diimplementasikan dengan mudah.</p><p>Artikel ini membahas mengapa relasi Many-to-Many (M:N).</p>"
+        },
+        "5 contoh intersection pada erd": {
+            pageUrl: 'intersection.html',
+            content: `<h3>5 Contoh Intersection pada ERD</h3>
+                      <p>Intersection dalam ERD terjadi ketika dua entitas memiliki hubungan Many-to-Many (M:N) dan perlu dibuatkan tabel penghubung (intermediate table) untuk merepresentasikannya secara benar di dalam database.</p>
+                      <p>Pada video ini, dijelaskan 5 contoh kasus intersection yang sering muncul dalam perancangan basis data, seperti relasi antara <strong>Mahasiswa dan Mata Kuliah</strong>, <strong>Dokter dan Pasien</strong>, hingga <strong>Produk dan Supplier</strong>.</p>
+                      <p>Dengan memahami intersection, kamu akan tahu bagaimana cara menghindari duplikasi data dan menjaga integritas relasi antar tabel di database relasional.</p>`
+        },
+        
+        "normalisasi erd": {
+            pageUrl: 'normalisasi.html',
+            content: `<h3>Normalisasi ERD</h3>
+                      <p>Normalisasi adalah proses penyusunan tabel dalam database agar data tersimpan secara efisien, bebas dari duplikasi, dan mudah dikelola. Konsep ini menjadi langkah penting setelah perancangan ERD selesai dibuat.</p>
+                      <p>Artikel ini membahas tahapan normalisasi dari <strong>1NF</strong>, <strong>2NF</strong>, hingga <strong>3NF</strong> disertai contoh konkret agar mudah dipahami. Setiap tahap akan dijelaskan tujuannya serta perubahan struktur tabel yang terjadi.</p>
+                      <p>Dengan memahami normalisasi, kamu akan mampu membuat desain database yang lebih optimal, konsisten, dan siap digunakan untuk sistem berskala besar.</p>`
         }
     };
 
